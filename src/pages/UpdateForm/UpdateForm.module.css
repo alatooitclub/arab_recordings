@@ -1,0 +1,78 @@
+/* Login.module.css */
+
+.full-page {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8bc34a; /* Adjust the color to match the green background */
+  }
+  
+  .form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text_form {
+    margin-bottom: 20px;
+    color: #333; /* Adjust the color for the text if needed */
+    font-size: 1.5em; /* Adjust the font size as needed */
+  }
+  
+  .formR {
+    width: 100%;
+  }
+  
+  .input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Adjust the border color as needed */
+    border-radius: 4px;
+  }
+  
+  .errorInput {
+    border-color: #f44336; /* Adjust the error color as needed */
+  }
+  
+  .error {
+    color: #f44336; /* Adjust the error color as needed */
+    font-size: 0.8em; /* Adjust the font size for error messages as needed */
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  .submitButton {
+    background-color: #4CAF50; /* Adjust the button color to match the image */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em; /* Adjust the font size as needed */
+  }
+  
+  .submitButton:hover {
+    background-color: #45a049; /* Adjust for hover state */
+  }
+  
+  .link {
+    color: #333; /* Adjust the color for the text if needed */
+    font-size: 0.9em; /* Adjust the font size as needed */
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  

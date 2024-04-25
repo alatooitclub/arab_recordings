@@ -1,0 +1,11 @@
+.button {
+    width: 202px;
+    height: 48px;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background-color: #46B6C5;
+    border-color: #46B6C5;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
