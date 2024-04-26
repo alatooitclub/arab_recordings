@@ -1,12 +1,9 @@
 import {Route, Routes} from "react-router-dom";
-import Regist from "../pages/Regist/Regist.jsx";
-import Login from "../pages/Login/Login.jsx";
+import {RegistLazy} from "../pages/Regist/RegistLazy.async.jsx";
+import {LoginLazy} from "../pages/Login/LoginLazy.async.jsx";
+import {ResetLazy} from "../pages/ResetPassword/ResetLazy.async.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
-import Form from "../components/Form/Form.jsx";
-import UpdateForm from "../pages/UpdateForm/UpdateForm.jsx";
-import Header from "../components/Hedaer/Header.jsx";
-import PasswordReset from "../pages/PasswordReset/PasswordReset.jsx";
-import NewPasswordForm from "../pages/NewPasswordForm/NewPasswordForm.jsx";
+import Header from "../components/Header/Header.jsx";
 
 const Router = () => {
     const {isAuth, setIsAuth} = useAuth()
@@ -17,15 +14,12 @@ const Router = () => {
             <Routes>
                 {!isAuth?
                     <>
-                        <Route path={"/register"} element={<Regist />}/>
-                        <Route path={"/login"} element={<Login />}/>
-                        <Route path="/reset" element={<PasswordReset />} />
-                        <Route path="/" element={<PasswordReset />} />
-                        <Route path="/new-password" component={NewPasswordForm} />
+                        <Route path="/regist" element={<RegistLazy />} />
+                        <Route path="/login" element={<LoginLazy />} />
+                        <Route path='/reset' element={<ResetLazy/>}/>
+
                     </> :
                     <>
-                        <Route path={"/form"} element={<Form />}/>  ///
-                        <Route path={"/updateForm/:formId"} element={<UpdateForm />}/>  
                </>
                 }
            </Routes>
