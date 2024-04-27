@@ -7,6 +7,10 @@ body {
     -moz-osx-font-smoothing: grayscale;      
 }
 
+a {
+    color: inherit;
+}
+
 #form{
     flex-direction: column;
     padding: 130px 0px;
@@ -30,7 +34,7 @@ body {
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); 
 }
-.formR input{
+.formR input, .formR select {
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #f2f2f2;
@@ -41,6 +45,12 @@ body {
     box-sizing: border-box;
     font-size: 14px;
 }
+
+.selectionRegis {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
 .errorInput {
     border: 1px solid red;
     color: #bf1650;
@@ -81,11 +91,16 @@ body {
     justify-content: center;
 }
 
-.formR .message {
+form .message {
     margin: 15px 0 0;
     color: #b3b3b3;
     font-size: 12px;
-}
+  }
+  
+  form .message a {
+    color: #4CAF50;
+  }
+  
 
 
 .container {

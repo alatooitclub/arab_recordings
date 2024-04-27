@@ -1,6 +1,9 @@
+import { useState } from "react";
 import classes from "./Regist.module.css";
 import {useForm} from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import SelectR from "./Selection/SelectR";
+import Select from "react-select";
 
 
 const Regist = () => {
@@ -18,9 +21,10 @@ const Regist = () => {
 
     const onSubmit = async(data) => {
         const dataUser = {
-            firstname: data.firstname,
-            lastname: data.lastname,
+            nickname: data.nickname,
             email: data.mail,
+            age: data.age,
+            gender: data.gender,
             password: data.password
         }
         console.log(dataUser)
@@ -39,6 +43,19 @@ const Regist = () => {
             <span className={classes.text_form}>Registration</span>
             <form id="flex_container" className={classes.formR} onSubmit={handleSubmit(onSubmit)}>
                 <input
+                    type="text"
+                    placeholder="* Nickname"
+                    {...register('nickname', {required: true})}
+                    aria-invalid={errors.firstName ? 'true' : 'false'}
+                    className={errors.firstName && classes.errorInput}
+                />
+                {errors.firstName?.type === 'required' && (
+                    <p role="alert" className={classes.error}>
+                        Nickname is required
+                    </p>
+                )}
+
+                <input
                     type="email"
                     placeholder="* Email"
                     {...register('mail', {required: true})}
@@ -52,26 +69,49 @@ const Regist = () => {
                 )}
 
                 <input
-                    type=""
-                    placeholder="* Username"
-                    {...register('firstName', {required: true})}
-                    aria-invalid={errors.firstName ? 'true' : 'false'}
-                    className={errors.firstName && classes.errorInput}
+                    type="number"
+                    placeholder="* Age"
+                    {...register('age', {required: true})}
+                    aria-invalid={errors.age ? 'true' : 'false'}
+                    className={errors.age && classes.errorInput}
                 />
-                {errors.firstName?.type === 'required' && (
+                {errors.password?.type === 'required' && (
                     <p role="alert" className={classes.error}>
-                        First name is required
+                        Age is required
+                    </p>
+                )}
+
+                <select 
+                    {...register('gender', {required: true})}
+                    aria-invalid={errors.gender ? 'true' : 'false'}
+                    className={errors.gender && classes.errorInput}>
+                    <option value="none">Don't want to say</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                {errors.gender?.type === 'required' && (
+                    <p className={classes.error} role="alert">
+                        Gender is required
                     </p>
                 )}
 
                 <input
                     type="password"
                     placeholder="* Password"
-                    {...register('password', {required: true})}
+                    {...register('password', {required: true,
+                        minLength: {
+                            value: 2,
+                            message: "description"
+                        }})}
                     aria-invalid={errors.password ? 'true' : 'false'}
                     className={errors.password && classes.errorInput}
                 />
                 {errors.password?.type === 'required' && (
+                    <p role="alert" className={classes.error}>
+                        Passwords is required
+                    </p>
+                )}
+                {errors.password?.type === 'minLength' && (
                     <p role="alert" className={classes.error}>
                         Passwords is required
                     </p>
@@ -94,7 +134,8 @@ const Regist = () => {
                     </p>
                 )}
                 {/*<p>{errAlert}</p>*/}
-                <button type='submit' className={classes.submitButton}>Submit</button>
+                <button type='submit' className={classes.submitButton}>Create</button>
+                <p className="message">Already registered? <NavLink to="/login">Log in</NavLink></p>
             </form>
         </div>
     );
