@@ -1,9 +1,7 @@
 import { useState } from "react";
-import classes from "./Regist.module.css";
 import {useForm} from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import SelectR from "./Selection/SelectR";
-import Select from "react-select";
+import classes from "./Regist.module.css";
 
 
 const Regist = () => {
