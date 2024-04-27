@@ -7,8 +7,6 @@ import { useAuth } from "../contexts/AuthContext.jsx";
 import Form from "../components/Form/Form.jsx";
 import UpdateForm from "../pages/UpdateForm/UpdateForm.jsx";
 import Header from "../components/Hedaer/Header.jsx";
-import PasswordReset from "../pages/PasswordReset/PasswordReset.jsx";
-import NewPasswordForm from "../pages/NewPasswordForm/NewPasswordForm.jsx";
 import ResetPassword from "../pages/ResetPassword/ResetPassword.jsx";
 
 const Router = () => {

@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import classes from "../Regist/Login.module.css";
-import { useAuth } from '../../context/AuthContext'; // Ensure this path is correct
+import classes from "../Login/Login.module.css";
+import { useAuth } from '../../contexts/AuthContext'; 
 
 const ResetPassword = () => {
-    const { setIsAuth } = useAuth(); // Using context to set authentication status
+    const { setIsAuth } = useAuth(); 
     const navigate = useNavigate();
     const [errAlert, setErrAlert] = useState('');
     const [email, setEmail] = useState();

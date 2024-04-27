@@ -1,4 +1,4 @@
-import classes from "../Regist/Regist.module.css"
+import classes from "../Login/Login.module.css"
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
