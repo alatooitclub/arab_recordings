@@ -9,6 +9,7 @@ import UpdateForm from "../pages/UpdateForm/UpdateForm.jsx";
 import Header from "../components/Hedaer/Header.jsx";
 import PasswordReset from "../pages/PasswordReset/PasswordReset.jsx";
 import NewPasswordForm from "../pages/NewPasswordForm/NewPasswordForm.jsx";
+import ResetPassword from "../pages/ResetPassword/ResetPassword.jsx";
 
 const Router = () => {
     const { isAuth, setIsAuth } = useAuth();
@@ -22,9 +23,7 @@ const Router = () => {
                     <>
                         <Route path="/register" element={<Regist />} />
                         <Route path="/login" element={<Login />} />
-                        <Route path="/reset" element={<PasswordReset />} />
-                        <Route path="/" element={<PasswordReset />} />
-                        <Route path="/new-password" component={NewPasswordForm} />
+                        <Route path="/reset" element={<ResetPassword />} />
                     </>
                 ) : (
                     <>

@@ -1,43 +1,41 @@
-import classes from "./Login.module.css";
-import {useForm} from "react-hook-form";
-import { useAuth } from "../../contexts/AuthContext";
-import { NavLink, useNavigate } from "react-router-dom";
+import classes from "../Regist/Regist.module.css"
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useState, useContext } from "react";
+import { useAuth } from "../../contexts/AuthContext"; 
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [errAlert, setErrAlert] = useState('');
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { setIsAuth } = useContext(useAuth);
 
-    const {
-        register,
-        formState: {errors},
-        handleSubmit,
-        watch
-    } = useForm()
-
-    const navigate = useNavigate()
-
-    const {isAuth, setIsAuth} = useAuth()
-    console.log(isAuth)
-
-    const onSubmit = async(data) => {
-        const dataUser = {
-            email: data.mail,
-            password: data.password
-        }
-        console.log(dataUser)
+    const onSubmit = async (data) => {
+        const loginData = {
+            "email": data.mail,
+            "password": data.password,
+        };
+	console.log(loginData)
         try {
-            const res = await apiService.post('/api/v1/auth/authenticate', dataUser)
+            const res = await apiService.post('/api/v1/auth/authenticate', loginData)
             console.log(res);
 
+            navigate('/', { replace: true });
             localStorage.setItem('token', res.data.access_token)
             setIsAuth(res.data.access_token)
 
-            navigate('/...')
-
-        } catch (error) {
-            console.log(error);
+        } catch (err) {
+            console.error(err);
+            if (err.response && err.response.status === 404) {
+                setErrAlert('User not found by email');
+            } else {
+                setErrAlert('Login error occurred');
+            }
         }
-    }   
+    };
 
-    return (
+     return (
         <div id={classes.form} className="flex_container full-page">
             <span className={classes.text_form}>Login</span>
             <form id="flex_container" className={classes.formR} onSubmit={handleSubmit(onSubmit)}>
@@ -69,7 +67,7 @@ const Login = () => {
                 )}
 
                 {/*<p>{errAlert}</p>*/}
-                <button type='submit' className={classes.submitButton}>Submit</button>
+                <button type='submit' className={classes.submitButton}>Log in</button>
                 <p className="message">
                     <NavLink to="/register" style={{ color: 'green', textDecoration: 'none', margin: '10px' }}>Sign up</NavLink>
                     <NavLink to="/reset" style={{ color: 'gray', textDecoration: 'none', margin: '10px' }}>Forgot password?</NavLink>
@@ -77,6 +75,6 @@ const Login = () => {
             </form>
         </div>
     );
-};
+}
 
 export default Login;
