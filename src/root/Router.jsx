@@ -1,4 +1,6 @@
-import {Route, Routes} from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import MainPage from "../pages/MainPage/MainPage.jsx";
 import Regist from "../pages/Regist/Regist.jsx";
 import Login from "../pages/Login/Login.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
@@ -9,26 +11,31 @@ import PasswordReset from "../pages/PasswordReset/PasswordReset.jsx";
 import NewPasswordForm from "../pages/NewPasswordForm/NewPasswordForm.jsx";
 
 const Router = () => {
-    const {isAuth, setIsAuth} = useAuth()
-    console.log(isAuth)
+    const { isAuth, setIsAuth } = useAuth();
+    console.log(isAuth);
     return (
         <>
-        <Header/>
+            <Header />
+            
             <Routes>
-                {!isAuth?
+            <Route path="/mainPage" element={<MainPage />} /> 
+                {!isAuth ? (
                     <>
-                        <Route path={"/register"} element={<Regist />}/>
-                        <Route path={"/login"} element={<Login />}/>
+                        <Route path="/register" element={<Regist />} />
+                        <Route path="/login" element={<Login />} />
                         <Route path="/reset" element={<PasswordReset />} />
                         <Route path="/" element={<PasswordReset />} />
                         <Route path="/new-password" component={NewPasswordForm} />
-                    </> :
+                    </>
+                ) : (
                     <>
-                        <Route path={"/form"} element={<Form />}/>  ///
-                        <Route path={"/updateForm/:formId"} element={<UpdateForm />}/>  
-               </>
-                }
-           </Routes>
+                        <Route path="/form" element={<Form />} />
+                        <Route path="/updateForm/:formId" element={<UpdateForm />} />
+                        
+                    </>
+                )}
+               
+            </Routes>
         </>
     );
 };
