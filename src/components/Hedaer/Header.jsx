@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import classes from "./Header.module.css";
 import Button from "../LogOutButton/LogOutButton";
 import MainPage from "../../pages/MainPage/MainPage";
+import SuperAdmin from "../../pages/SuperAdmin/SuperAdmin"; "../../pages//SuperAdmin/SuperAdmin";
 
 const Header = () => {
     const { isAuth } = useAuth();

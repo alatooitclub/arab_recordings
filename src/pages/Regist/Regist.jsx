@@ -13,8 +13,6 @@ const Regist = () => {
         watch
     } = useForm()
 
-  
-
     const navigate = useNavigate()
 
     const onSubmit = async(data) => {
@@ -79,10 +77,11 @@ const Regist = () => {
                     </p>
                 )}
 
-                <select 
+                <select defaultValue={'DEFAULT'}
                     {...register('gender', {required: true})}
                     aria-invalid={errors.gender ? 'true' : 'false'}
                     className={errors.gender && classes.errorInput}>
+                    <option value="DEFAULT" disabled>* Gender</option>
                     <option value="none">Don't want to say</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
