@@ -13,6 +13,7 @@ const Header = () => {
             <div className={classes["header-details"]} id="header-details">
                 <div className={classes["header-logo"]} id="header-logo">Study</div>
                 <li><NavLink to="/mainPage">Home</NavLink></li>
+                <li><NavLink to="/experts">Expert</NavLink></li>
                 <ul className={classes.navbar} id="navbar">
                     {isAuth && <li><NavLink to="/form">Form</NavLink></li>}
                 </ul>

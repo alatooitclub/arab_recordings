@@ -8,6 +8,7 @@ import Form from "../components/Form/Form.jsx";
 import UpdateForm from "../pages/UpdateForm/UpdateForm.jsx";
 import Header from "../components/Hedaer/Header.jsx";
 import ResetPassword from "../pages/ResetPassword/ResetPassword.jsx";
+import Experts from "../pages/Experts/Experts.jsx";
 
 const Router = () => {
     const { isAuth, setIsAuth } = useAuth();
@@ -22,6 +23,7 @@ const Router = () => {
                         <Route path="/register" element={<Regist />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/reset" element={<ResetPassword />} />
+                        <Route path="/experts" element={<Experts />} />
                     </>
                 ) : (
                     <>
