@@ -1,5 +1,5 @@
 body {
-    background: #76b852; /* fallback for old browsers */
+    background: #76b852; 
     background: rgb(141,194,111);
     background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
     font-family: "Roboto", sans-serif;
@@ -26,7 +26,6 @@ a {
 }
 .formR{
     position: relative;
-    z-index: 1;
     background: #FFFFFF;
     max-width: 800px;
     margin: 0 auto 100px;

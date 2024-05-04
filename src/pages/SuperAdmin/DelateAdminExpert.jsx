@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useLang } from "../../hooks/useLang";
+import { setLang } from "../../contexts/lang";
 
 const DelateAdminExpert = ({classes}) => {
     const [identifier, setIdentifier] = useState('');
     const [message, setMessage] = useState('');
     const [user, setUser] = useState(null);
+
+    const { lang, translations } = useLang();
+
+    const handleSwitchLang = (lang) => {
+        setLang(lang);
+        localStorage.setItem("lang", JSON.stringify(lang));
+    };
 
     const handleInputChange = (e) => {
         setIdentifier(e.target.value);

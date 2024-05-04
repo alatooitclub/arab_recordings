@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import classes from './SuperAdmin.module.css';
+import { useLang } from "../../hooks/useLang";
+import { setLang } from "../../contexts/lang";
 
 
 const AddWord = ({classes}) => {
@@ -11,6 +13,13 @@ const AddWord = ({classes}) => {
         handleSubmit,
         watch
     } = useForm()
+
+    const { lang, translations } = useLang();
+
+    const handleSwitchLang = (lang) => {
+        setLang(lang);
+        localStorage.setItem("lang", JSON.stringify(lang));
+    };
     
     const onSubmitWord = async(data) => {
         const dataWord = {

@@ -15,7 +15,7 @@ const Button = () => {
     }
     return (
         <section>
-            <button className={classes.button} onClick={ () => logOut()}>Log Out</button>
+            <button className={classes.button} onClick={ () => logOut()}>Sign Out</button>
         </section>
     );
 };

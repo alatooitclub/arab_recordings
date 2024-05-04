@@ -1,0 +1,35 @@
+{
+  "en": {
+    "header": {
+      "home_btn": "Home",
+      "admin_btn": "Super Admin",
+      "signIn": "Sign In",
+      "signUp": "Sign Up",
+      "signOut": "Sign Out"
+    },
+    "wordCount": "Number of words",
+    "bookmark_btn": "Saved"
+  },
+  "ru": {
+    "header": {
+      "home_btn": "Главная",
+      "admin_btn": "Супер Админ",
+      "signIn": "Вход",
+      "signUp": "Регистрация",
+      "signOut": "Выход"
+    },
+    "wordCount": "Количество слов",
+    "bookmark_btn": "Сохраненные"
+  },
+  "kg": {
+    "header": {
+      "home_btn": "Башкы бет",
+      "admin_btn": "Супер Админ",
+      "signIn": "Кирүү",
+      "signUp": "Катталуу",
+      "signOut": "Чыгуу"
+    },
+    "wordCount": "Сөздөрдүн саны",
+    "bookmark_btn": "Сакталган"
+  }
+}

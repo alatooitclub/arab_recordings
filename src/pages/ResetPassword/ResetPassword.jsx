@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import classes from "../Login/Login.module.css";
 import { useAuth } from '../../contexts/AuthContext'; 
+import { useLang } from "../../hooks/useLang";
+import { setLang } from "../../contexts/lang";
 
 const ResetPassword = () => {
     const { setIsAuth } = useAuth(); 
@@ -10,6 +12,14 @@ const ResetPassword = () => {
     const [errAlert, setErrAlert] = useState('');
     const [email, setEmail] = useState();
     const [switcher, setSwitcher] = useState(1);
+
+
+    const { lang, translations } = useLang();
+
+    const handleSwitchLang = (lang) => {
+        setLang(lang);
+        localStorage.setItem("lang", JSON.stringify(lang));
+    };
 
     const {
         register,

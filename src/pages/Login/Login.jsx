@@ -3,13 +3,21 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
-import { useAuth } from "../../contexts/AuthContext"; 
+import { useAuth } from "../../contexts/AuthContext";
+import { useLang } from "../../hooks/useLang";
+import { setLang } from "../../contexts/lang"; 
 
 const Login = () => {
     const navigate = useNavigate();
+    const { lang, translations } = useLang();
     const [errAlert, setErrAlert] = useState('');
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { setIsAuth } = useContext(useAuth);
+
+    const handleSwitchLang = (lang) => {
+        setLang(lang);
+        localStorage.setItem("lang", JSON.stringify(lang));
+      };
 
     const onSubmit = async (data) => {
         const loginData = {

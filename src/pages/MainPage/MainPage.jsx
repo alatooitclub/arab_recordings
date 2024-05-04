@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './MainPage.module.css';
+import { useLang } from "../../hooks/useLang";
+import { setLang } from "../../contexts/lang"; 
 
 
 const MainPage = () => {
@@ -123,14 +125,23 @@ const MainPage = () => {
         }
     };
 
+    const handleSwitchLang = (lang) => {
+        setLang(lang); 
+        localStorage.setItem('lang', JSON.stringify(lang));
+    };
+
+    const { lang, translations } = useLang();
+
+
     return (
         <div className={styles.container}>
-            <p className={styles.wordCount}>Number of words: {wordCount}</p>
+            <p className={styles.wordCount}>{translations[lang].wordCount}: {wordCount}</p>
+
             <div className={styles.content}>
                 <p className={styles.loadedWord}>Word: الجامعة{loadedWord}</p>
                 <p className={styles.transcript}>[Transcript: hvbkdtfyguhj]{transcript}</p>
                 <p className={styles.translation}>Translation: University {translation}</p>
-                <div className={styles.buttons}>
+                <div className={styles.buttonsP}>
                     <button onClick={toggleAudio} disabled={!audioURL && audioChunks.length === 0} className={styles.playButton}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" className="bi bi-volume-up" viewBox="0 0 16 16">
                             <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>

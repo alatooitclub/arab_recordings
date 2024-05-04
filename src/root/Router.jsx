@@ -4,10 +4,11 @@ import MainPage from "../pages/MainPage/MainPage.jsx";
 import Regist from "../pages/Regist/Regist.jsx";
 import Login from "../pages/Login/Login.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
-import Form from "../components/Form/Form.jsx";
-import UpdateForm from "../pages/UpdateForm/UpdateForm.jsx";
-import Header from "../components/Hedaer/Header.jsx";
+import Header from "../components/Header/Header.jsx";
 import ResetPassword from "../pages/ResetPassword/ResetPassword.jsx";
+import SuperAdmin from '../pages/SuperAdmin/SuperAdmin.jsx';
+import Footer from "../components/Footer/Footer.jsx";
+
 
 const Router = () => {
     const { isAuth, setIsAuth } = useAuth();
@@ -16,22 +17,15 @@ const Router = () => {
         <>
             <Header />
             <Routes>
-            <Route path="/mainPage" element={<MainPage />} /> 
-                {!isAuth ? (
-                    <>
-                        <Route path="/register" element={<Regist />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/reset" element={<ResetPassword />} />
-                    </>
-                ) : (
-                    <>
-                        <Route path="/form" element={<Form />} />
-                        <Route path="/updateForm/:formId" element={<UpdateForm />} />
-                        
-                    </>
-                )}
-               
+                <Route path="/mainPage" element={<MainPage />} /> 
+                <Route path="/register" element={<Regist />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/reset" element={<ResetPassword />} />
+                <Route path="/superAdmin" element={<SuperAdmin />} />
+
             </Routes>
+            <Footer/>
+
         </>
     );
 };

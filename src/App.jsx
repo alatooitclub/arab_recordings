@@ -7,10 +7,10 @@ function App() {
 
   return (
     <>
-    <SuperAdmin/>
-    {/* <AuthProvider>
+    {/* <SuperAdmin/> */}
+    <AuthProvider>
       <Router/>
-    </AuthProvider> */}
+    </AuthProvider>
     </>
   )
 }

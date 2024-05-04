@@ -2,6 +2,8 @@ import { useState } from "react";
 import {useForm} from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 import classes from "./Regist.module.css";
+import { useLang } from "../../hooks/useLang";
+import { setLang } from "../../contexts/lang";
 
 
 const Regist = () => {
@@ -12,6 +14,13 @@ const Regist = () => {
         handleSubmit,
         watch
     } = useForm()
+
+    const { lang, translations } = useLang();
+
+    const handleSwitchLang = (lang) => {
+        setLang(lang);
+        localStorage.setItem("lang", JSON.stringify(lang));
+    };
 
     const navigate = useNavigate()
 

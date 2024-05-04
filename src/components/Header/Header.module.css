@@ -1,0 +1,354 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  width: 100vw;
+  height: 100px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.header-details {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+}
+
+.logoText {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  margin-left: 5px;
+  color: #244e3c;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.pages {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icons img {
+  margin-left: 30px;
+}
+
+.navbar-log {
+  width: 26%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonsNav {
+  padding: 1em 2em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-left: 5px;
+}
+
+.buttonsNav:hover {
+  background-color: #4caf50;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
+#signOutBut {
+  margin-left: 100px;
+}
+
+.lang {
+  margin-top: 0px;
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  border: none;
+}
+
+.lang button {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #588157;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  outline: none;
+}
+
+.langMenu {
+  position: absolute;
+  bottom: -190%;
+  z-index: 1;
+  width: 100%;
+  list-style-type: none;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.lang:hover .langMenu {
+  opacity: 1;
+  transform: translateY(0);
+  border: none;
+}
+
+.langOption {
+  padding: 2px 6px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.langOption:hover {
+  background-color: #4caf50;
+}
+
+.dropdownButton {
+  display: none;
+}
+
+.dropdownMenu {
+  display: none;
+  width: 50%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownMenu.show {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  background-color: rgba(242, 234, 234, 0.8);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 50%;
+  z-index: 999;
+}
+
+.menuItem {
+  padding: 10px;
+  text-align: center;
+  color: #000;
+}
+
+@media screen and (max-width: 770px) {
+  header {
+    width: 100%;
+    height: 75px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+  }
+
+  .header-details {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .header-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+  }
+
+  .header-logo img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logoText {
+    font-family: "Dancing Script", cursive;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 36px;
+    margin-left: 5px;
+    color: #244e3c;
+  }
+
+  .navbar-log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .icons {
+    margin-bottom: 20px;
+    margin-right: 25px;
+  }
+
+  .buttonNav {
+    width: 120px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 10px;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 20px;
+  }
+
+  .buttonNav:hover {
+    background-color: #4caf50;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+  .buttonsNav {
+    display: none;
+  }
+
+  .dropdownButton {
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .dropdownMenu {
+    display: block;
+  }
+
+  .pages {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    gap: 20px;
+  }
+
+  .lang {
+    margin-right: 0px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: flex;
+    align-items: start;
+    border: none;
+  }
+
+  .lang button {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    padding: 1px 4px;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #588157;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    outline: none;
+  }
+
+  .langMenu {
+    position: absolute;
+    bottom: -395%;
+    z-index: 100;
+    width: 100%;
+  }
+
+
+  .dropdownMenu.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 03.s ease;
+    background-color: #ccd5ae;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dropdownMenu.show .menuItem {
+    padding: 10px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  .dropdownButton {
+    margin-top: 5px;
+    background-color: #fff;
+    border: none;
+  }
+}

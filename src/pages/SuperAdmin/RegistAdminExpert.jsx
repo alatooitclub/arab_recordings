@@ -1,5 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useLang } from "../../hooks/useLang";
+import { setLang } from "../../contexts/lang";
 
 
 const RegistAdminExpert = ({classes}) => {
@@ -10,6 +12,13 @@ const RegistAdminExpert = ({classes}) => {
         handleSubmit,
         watch
     } = useForm()
+
+    const { lang, translations } = useLang();
+
+    const handleSwitchLang = (lang) => {
+        setLang(lang);
+        localStorage.setItem("lang", JSON.stringify(lang));
+    };
 
     const onSubmitAdminOrExpert = async(data) => {
         const dataAdminExpert = {
