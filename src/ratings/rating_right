@@ -1,0 +1,61 @@
+import React, { useState } from 'react';
+
+const RateAudio = () => {
+  const [rating, setRating] = useState(null);
+
+  const handleRating = (value) => {
+    if (rating === value) {
+      // If the same rating is clicked again, deselect it
+      setRating(null);
+    } else {
+      // Otherwise, set the rating to the clicked value
+      setRating(value);
+      // Send rating information to backend
+      sendRatingToBackend(value);
+    }
+  };
+
+  const sendRatingToBackend = (value) => {
+    fetch('your-backend-url', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ rating: value })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to send rating to backend');
+      }
+      console.log('Rating sent successfully');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  };
+
+  return (
+    <div>
+      <button 
+        className={rating === 'thumbs_up' ? 'selected' : ''}
+        onClick={() => handleRating('thumbs_up')}
+      >
+        Thumbs Up
+      </button>
+      <button 
+        className={rating === 'thumbs_down' ? 'selected' : ''}
+        onClick={() => handleRating('thumbs_down')}
+      >
+        Thumbs Down
+      </button>
+      <button 
+        className={rating === 'neutral' ? 'selected' : ''}
+        onClick={() => handleRating('neutral')}
+      >
+        Neutral
+      </button>
+    </div>
+  );
+};
+
+export default RateAudio;
