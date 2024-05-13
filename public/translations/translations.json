@@ -3,6 +3,7 @@
     "header": {
       "home_btn": "Home",
       "admin_btn": "Super Admin",
+      "admin2_btn": "Admin",
       "signIn": "Sign In",
       "signUp": "Sign Up",
       "signOut": "Sign Out"
@@ -14,6 +15,7 @@
     "header": {
       "home_btn": "Главная",
       "admin_btn": "Супер Админ",
+      "admin2_btn": "Админ",
       "signIn": "Вход",
       "signUp": "Регистрация",
       "signOut": "Выход"
@@ -25,6 +27,7 @@
     "header": {
       "home_btn": "Башкы бет",
       "admin_btn": "Супер Админ",
+      "admin2_btn": "Админ",
       "signIn": "Кирүү",
       "signUp": "Катталуу",
       "signOut": "Чыгуу"
