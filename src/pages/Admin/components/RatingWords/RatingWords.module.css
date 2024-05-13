@@ -46,7 +46,6 @@ audio {
     margin-top: 10px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -54,11 +53,11 @@ audio {
     }
 
     .word, button {
-        width: 90%; /* Smaller devices might need more margin */
+        width: 90%; 
     }
 
     button {
-        font-size: 14px; /* Smaller font size for smaller devices */
+        font-size: 14px; 
         padding: 8px 16px;
     }
 }
@@ -80,6 +79,6 @@ audio {
     }
 
     .word, button {
-        width: 100%; /* Use full width for very small devices */
+        width: 100%; 
     }
 }

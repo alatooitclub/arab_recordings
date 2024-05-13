@@ -118,7 +118,7 @@ header {
 .lang button {
   transition: background-color 0.3s ease;
   cursor: pointer;
-  padding: 2px 6px;
+  padding: 2px 12px;
   text-transform: uppercase;
   color: #000;
   background-color: #588157;
