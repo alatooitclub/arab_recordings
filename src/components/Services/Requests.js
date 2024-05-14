@@ -1,14 +1,12 @@
 import axios from 'axios';
 
 // Базовый URL вашего API
-const BASE_URL = 'https://your-api-url.com';
+const BASE_URL = 'https://arabrecordingsback-production.up.railway.app/';
 
-// Создаем экземпляр axios с предустановленными конфигурациями
 const api = axios.create({
   baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json'
-    // Другие глобальные заголовки можно добавить здесь
   }
 });
 

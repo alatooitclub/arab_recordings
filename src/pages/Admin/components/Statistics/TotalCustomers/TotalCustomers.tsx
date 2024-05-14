@@ -4,7 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
-import { SxProps, Theme, Typography } from '@mui/material';
+import { SxProps, Theme, Typography, useTheme } from '@mui/material';
 import { ArrowDown, ArrowUp, Users } from 'phosphor-react';
 
 export interface TotalCustomersProps {
@@ -35,6 +35,7 @@ export function TotalCustomers({ sx }: TotalCustomersProps): React.JSX.Element {
     fetchData();
   }, []); // Empty dependency array means this runs once on mount
 
+  const theme = useTheme(); 
   const TrendIcon = customerData.trend === 'up' ? ArrowUp : ArrowDown;
   const trendColor = customerData.trend === 'up' ? '#4caf50' : '#f44336'; 
 
@@ -43,8 +44,10 @@ export function TotalCustomers({ sx }: TotalCustomersProps): React.JSX.Element {
     backgroundColor: '#fff',
     boxShadow: '0px 2px 4px rgba(0,0,0,0.1)',
     borderRadius: '20px',
-    width: '450px',
+    width: { xs: '100%', sm: '450px' }, 
     height: '150px',
+    mx: 'auto',  
+    p: theme.spacing(2)  
   };
 
   return (

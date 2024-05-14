@@ -12,13 +12,13 @@ export interface TotalCorrectRecordingsProps {
 }
 
 export function TotalCorrectRecordings({ sx }: TotalCorrectRecordingsProps): React.JSX.Element {
-  const theme = useTheme();  
-  const [recordings, setRecordings] = useState('0');  // State to hold the recording count
+  const theme = useTheme();
+  const [recordings, setRecordings] = useState('0');  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://your-api-url.com/total-correct-recordings');  
+        const response = await axios.get('https://your-api-url.com/total-correct-recordings');
         setRecordings(response.data.recordings);  // Assuming the API returns an object with a recordings key
       } catch (error) {
         console.error('Failed to fetch data:', error);
@@ -33,8 +33,10 @@ export function TotalCorrectRecordings({ sx }: TotalCorrectRecordingsProps): Rea
     backgroundColor: '#fff',
     boxShadow: '0px 2px 4px rgba(0,0,0,0.1)',
     borderRadius: '20px',
-    width: '450px',
-    height: '150px',
+    width: { xs: '100%', sm: '450px' }, 
+    height: 'auto', 
+    padding: theme.spacing(2),
+    mx: 'auto', 
   };
 
   return (

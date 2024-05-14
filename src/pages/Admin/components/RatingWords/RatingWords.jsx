@@ -62,17 +62,17 @@ export default function RatingWords() {
         <audio src={audioSrc} controls preload="auto"></audio>
         <div>
           <button  
-            className={rating === 'right' ? styles.selected : ''} 
+            className={`${styles.button} ${rating === 'right' ? styles.selected : ''} ${styles.correctWithTajwid}`} 
             onClick={() => handleRating('right')}>
             Correct with tajwid
           </button>
           <button  
-            className={rating === 'without_tajwid' ? styles.selected : ''} 
+            className={`${styles.button} ${rating === 'without_tajwid' ? styles.selected : ''} ${styles.correctWithoutTajwid}`} 
             onClick={() => handleRating('without_tajwid')}>
             Correct without tajwid
           </button>
           <button  
-            className={rating === 'wrong' ? styles.selected : ''} 
+            className={`${styles.button} ${rating === 'wrong' ? styles.selected : ''} ${styles.wrong}`} 
             onClick={() => handleRating('wrong')}>
             Wrong
           </button>

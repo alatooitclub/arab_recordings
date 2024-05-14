@@ -20,7 +20,7 @@
     box-sizing: border-box;
 }
 
-button {
+.correctWithTajwid {
     width: 30%;
     padding: 15px;
     margin: 15px;
@@ -33,11 +33,51 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+.correctWithTajwid:hover {
     background-color: #45a049;
 }
 
-button.selected {
+.correctWithTajwid.selected {
+    background-color: #D4A017;
+}
+.correctWithoutTajwid {
+    width: 30%;
+    padding: 15px;
+    margin: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #244E3C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.correctWithoutTajwid:hover {
+    background-color: #45a049;
+}
+
+.correctWithoutTajwid.selected {
+    background-color: #D4A017;
+}
+.wrong {
+    width: 30%;
+    padding: 15px;
+    margin: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #244E3C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.wrong:hover {
+    background-color: #45a049;
+}
+
+.wrong.selected {
     background-color: #D4A017;
 }
 
@@ -52,11 +92,11 @@ audio {
         margin: 15px 25px;
     }
 
-    .word, button {
+    .word, .correctWithTajwid, .correctWithoutTajwid,.wrong {
         width: 90%; 
     }
 
-    button {
+    .correctWithTajwid, .correctWithoutTajwid,.wrong {
         font-size: 14px; 
         padding: 8px 16px;
     }
@@ -72,13 +112,13 @@ audio {
         padding: 20px;  
     }
 
-    button {
+    .correctWithTajwid, .correctWithoutTajwid,.wrong {
         padding: 10px; 
         font-size: 12px;
         margin-top: 10px;
     }
 
-    .word, button {
+    .word, .correctWithTajwid, .correctWithoutTajwid,.wrong {
         width: 100%; 
     }
 }
