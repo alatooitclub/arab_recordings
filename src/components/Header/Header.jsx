@@ -145,6 +145,8 @@ const Header = () => {
                 <NavLink to="/superAdmin" style={{ textDecoration: "none", margin: "20px" }}>
                   {translations[lang].header.admin_btn}
                 </NavLink>
+              </div>
+              <div>
                 <NavLink to="/admin" style={{ textDecoration: "none", margin: "20px" }}>
                   {translations[lang].header.admin2_btn}
                 </NavLink>

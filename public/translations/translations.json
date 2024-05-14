@@ -9,8 +9,15 @@
       "signOut": "Sign Out"
     },
     "wordCount": "Number of words",
-    "bookmark_btn": "Saved"
+    "bookmark_btn": "Saved",
+    "footer": {
+      "itClub": "Ala-Too IT-Club",
+      "doneBy": "Done by University students",
+      "rights": "All rights reserved by Ala-Too IT Club"
+    }
   },
+
+
   "ru": {
     "header": {
       "home_btn": "Главная",
@@ -21,8 +28,16 @@
       "signOut": "Выход"
     },
     "wordCount": "Количество слов",
-    "bookmark_btn": "Сохраненные"
+    "bookmark_btn": "Сохраненные",
+    "footer": {
+      "itClub": "Ала-Тоо IT-Club",
+      "doneBy": "Сделано студентами университета",
+      "rights": "Все права защищены IT-клубом Ала-Тоо"
+    }
   },
+
+
+
   "kg": {
     "header": {
       "home_btn": "Башкы бет",
@@ -33,6 +48,11 @@
       "signOut": "Чыгуу"
     },
     "wordCount": "Сөздөрдүн саны",
-    "bookmark_btn": "Сакталган"
+    "bookmark_btn": "Сакталган",
+    "footer": {
+      "itClub": "Ала-Тоо IT-Club",
+      "doneBy": "Университеттин студенттери тарабынан жасалган",
+      "rights": "Ала-Тоо IT-клубунун бардык укуктары сакталган"
+    }
   }
 }
