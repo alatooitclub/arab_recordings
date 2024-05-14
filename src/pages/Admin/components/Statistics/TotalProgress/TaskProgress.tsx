@@ -14,7 +14,7 @@ export interface TasksProgressProps {
 
 export function TasksProgress({ sx }: TasksProgressProps): React.JSX.Element {
   const theme = useTheme();
-  const [progress, setProgress] = React.useState(0); 
+  const [progress, setProgress] = React.useState(0);  
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -34,9 +34,9 @@ export function TasksProgress({ sx }: TasksProgressProps): React.JSX.Element {
     backgroundColor: '#fff', 
     boxShadow: '0px 2px 4px rgba(0,0,0,0.1)', 
     borderRadius: '20px', 
-    width: { xs: '100%', sm: '450px' },
+    width: { xs: '100%', sm: '450px' }, 
     height: 'auto', 
-    padding: theme.spacing(2),
+    padding: theme.spacing(2), 
     mx: 'auto', 
   };
 

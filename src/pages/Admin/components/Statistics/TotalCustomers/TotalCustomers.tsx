@@ -33,9 +33,9 @@ export function TotalCustomers({ sx }: TotalCustomersProps): React.JSX.Element {
     };
 
     fetchData();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []); 
 
-  const theme = useTheme(); 
+  const theme = useTheme();  
   const TrendIcon = customerData.trend === 'up' ? ArrowUp : ArrowDown;
   const trendColor = customerData.trend === 'up' ? '#4caf50' : '#f44336'; 
 

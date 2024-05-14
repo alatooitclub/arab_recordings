@@ -10,23 +10,20 @@ const api = axios.create({
   }
 });
 
-// Получение случайного слова для оценки
 const getWord = async () => {
   try {
     const response = await api.get('/words/random');
-    return response.data; // предполагается, что сервер возвращает данные непосредственно
+    return response.data; 
   } catch (error) {
-    // Обработка ошибок запроса
     console.error('Failed to fetch word:', error);
-    throw error; // Переброс ошибки для дальнейшей обработки
+    throw error;
   }
 };
 
-// Пример функции для отправки оценки
 const postRating = async (ratingData) => {
   try {
     const response = await api.post('/ratings', ratingData);
-    return response.data; // обработка успешного ответа
+    return response.data;
   } catch (error) {
     console.error('Failed to post rating:', error);
     throw error;

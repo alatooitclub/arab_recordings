@@ -13,7 +13,7 @@ export interface TotalCorrectRecordingsProps {
 
 export function TotalCorrectRecordings({ sx }: TotalCorrectRecordingsProps): React.JSX.Element {
   const theme = useTheme();
-  const [recordings, setRecordings] = useState('0');  
+  const [recordings, setRecordings] = useState('0');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,7 +53,7 @@ export function TotalCorrectRecordings({ sx }: TotalCorrectRecordingsProps): Rea
           </Stack>
           <Avatar sx={{
             backgroundColor: theme.palette.success.light,
-            height: { xs: '40px', sm: '56px' },
+            height: { xs: '40px', sm: '56px' }, 
             width: { xs: '40px', sm: '56px' }
           }}>
             <Microphone size={32} color={theme.palette.success.contrastText} />
