@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Avatar, Card, CardContent, Stack, SxProps, Typography, useTheme } from '@mui/material';
-import { ArrowDown, ArrowUp, NotePencil } from 'phosphor-react';
+import { Avatar, Card, CardContent, Stack, SxProps, Typography, useTheme, Box } from '@mui/material';
+import { NotePencil } from 'phosphor-react';
+
+export interface WordsData {
+  low: { value: string; entries: number };
+  medium: { value: string; entries: number };
+  high: { value: string; entries: number };
+}
 
 export interface TotalWordsProps {
   sx?: SxProps;
@@ -9,17 +15,17 @@ export interface TotalWordsProps {
 
 export function TotalWords({ sx }: TotalWordsProps): React.JSX.Element {
   const theme = useTheme();
-  const [wordsData, setWordsData] = useState({ value: '0', diff: 0, trend: 'up' });
+  const [wordsData, setWordsData] = useState<WordsData>({
+    low: { value: 'Easy', entries: 0 },
+    medium: { value: 'Medium', entries: 0 },
+    high: { value: 'Hard', entries: 0 }
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://your-api-url.com/total-words');
-        setWordsData({
-          value: response.data.value,
-          diff: response.data.diff,
-          trend: response.data.trend
-        });
+        const response = await axios.get('https://your-api-url.com/words-data');
+        setWordsData(response.data);
       } catch (error) {
         console.error('Failed to fetch data:', error);
       }
@@ -28,7 +34,18 @@ export function TotalWords({ sx }: TotalWordsProps): React.JSX.Element {
     fetchData();
   }, []);
 
-  const TrendIcon = wordsData.trend === 'up' ? ArrowUp : ArrowDown;
+  const renderWordLevel = (level: { value: string; entries: number }) => {
+    return (
+      <Stack spacing={2}>
+        <Typography variant="h6" sx={{ fontWeight: 600, fontSize: { xs: '1.25rem', sm: '1.5rem' } }}>
+          {level.value}
+        </Typography>
+        <Typography variant="subtitle1" sx={{ fontSize: { xs: '1rem', sm: '1.25rem' } }}>
+          Entries: {level.entries}
+        </Typography>
+      </Stack>
+    );
+  };
 
   const cardStyles = {
     ...sx,
@@ -38,39 +55,30 @@ export function TotalWords({ sx }: TotalWordsProps): React.JSX.Element {
     width: { xs: '100%', sm: '450px' },
     height: 'auto', 
     padding: theme.spacing(2), 
-    mx: 'auto', 
-  };
+    mx: 'auto',
+    position: 'relative', 
+  } as const; 
 
   return (
     <Card sx={cardStyles}>
       <CardContent>
         <Stack spacing={3}>
-          <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
-            <Stack spacing={1}>
-              <Typography color="text.secondary" variant="overline" sx={{ fontSize: { xs: '0.75rem', sm: '1rem' } }}>
-                Total Words
-              </Typography>
-              <Typography variant="h4" sx={{ fontWeight: 600, fontSize: { xs: '1.5rem', sm: '2rem' } }}>
-                {wordsData.value}
-              </Typography>
-            </Stack>
-            <Avatar sx={{ backgroundColor: theme.palette.secondary.light, height: '56px', width: '56px' }}>
-              <NotePencil size={32} color={theme.palette.secondary.contrastText} />
-            </Avatar>
-          </Stack>
-          {wordsData.diff !== 0 && (
-            <Stack direction="row" spacing={2} alignItems="center">
-              <TrendIcon size={24} style={{ color: wordsData.trend === 'up' ? theme.palette.success.main : theme.palette.error.main }} />
-              <Typography sx={{ color: wordsData.trend === 'up' ? theme.palette.success.main : theme.palette.error.main, fontWeight: 500, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
-                {wordsData.diff}%
-              </Typography>
-              <Typography color="text.secondary" variant="caption">
-                Since last month
-              </Typography>
-            </Stack>
-          )}
+          {renderWordLevel(wordsData.low)}
+          {renderWordLevel(wordsData.medium)}
+          {renderWordLevel(wordsData.high)}
         </Stack>
       </CardContent>
+      <Avatar sx={{
+        backgroundColor: theme.palette.secondary.light,
+        height: '56px',
+        width: '56px',
+        margin: '30px',
+        position: 'absolute',
+        right: theme.spacing(2),
+        top: theme.spacing(2)
+      }}>
+        <NotePencil size={32} color={theme.palette.secondary.contrastText} />
+      </Avatar>
     </Card>
   );
 }

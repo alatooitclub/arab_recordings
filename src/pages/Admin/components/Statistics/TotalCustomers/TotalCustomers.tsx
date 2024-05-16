@@ -39,15 +39,15 @@ export function TotalCustomers({ sx }: TotalCustomersProps): React.JSX.Element {
   const TrendIcon = customerData.trend === 'up' ? ArrowUp : ArrowDown;
   const trendColor = customerData.trend === 'up' ? '#4caf50' : '#f44336'; 
 
-  const cardStyles: SxProps<Theme> = {
+  const cardStyles = {
     ...sx,
     backgroundColor: '#fff',
     boxShadow: '0px 2px 4px rgba(0,0,0,0.1)',
     borderRadius: '20px',
     width: { xs: '100%', sm: '450px' }, 
-    height: '150px',
-    mx: 'auto',  
-    p: theme.spacing(2)  
+    height: 'auto', 
+    padding: theme.spacing(2),
+    mx: 'auto', 
   };
 
   return (
@@ -56,7 +56,7 @@ export function TotalCustomers({ sx }: TotalCustomersProps): React.JSX.Element {
         <Stack spacing={2}>
           <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
-              <Typography color="text.secondary" variant="overline">
+            <Typography color="text.secondary" variant="overline" sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' } }}>
                 Total Customers
               </Typography>
               <Typography variant="h4" style={{ fontWeight: 600, fontSize: '2rem' }}>

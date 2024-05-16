@@ -43,7 +43,7 @@ export function TotalCorrectRecordings({ sx }: TotalCorrectRecordingsProps): Rea
     <Card sx={cardStyles}>
       <CardContent>
         <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
-          <Stack spacing={1}>
+          <Stack spacing={2}>
             <Typography color="text.secondary" variant="overline" sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' } }}>
               Total Correct Recordings
             </Typography>

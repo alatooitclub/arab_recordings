@@ -9,10 +9,12 @@ import ResetPassword from "../pages/ResetPassword/ResetPassword.jsx";
 import SuperAdmin from '../pages/SuperAdmin/SuperAdmin.jsx';
 import Footer from "../components/Footer/Footer.jsx";
 import Admin from "../pages/Admin/pages/mainPageAdmin/Admin.jsx";
+import Recording from "../pages/Admin/pages/RecordingPage/Recording.jsx";
 
 const Router = () => {
     const { isAuth, setIsAuth } = useAuth();
     console.log(isAuth);
+    const isRoleAdmin = true
     return (
         <>
             <Header />
@@ -22,7 +24,11 @@ const Router = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/reset" element={<ResetPassword />} />
                 <Route path="/superAdmin" element={<SuperAdmin />} />
-                <Route path="/admin" element={<Admin />} />
+                {isRoleAdmin && <>
+                    <Route path="/admin" element={<Admin />} />
+                    <Route path="/recording" element={<Recording />} />
+                </>}
+                
             </Routes>
             <Footer/>
 

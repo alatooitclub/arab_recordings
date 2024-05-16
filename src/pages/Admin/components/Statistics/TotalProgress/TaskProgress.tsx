@@ -46,7 +46,7 @@ export function TasksProgress({ sx }: TasksProgressProps): React.JSX.Element {
         <Stack spacing={2}>
           <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
-              <Typography color="text.secondary" gutterBottom variant="overline">
+            <Typography color="text.secondary" variant="overline" sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' } }}>
                 Task Progress
               </Typography>
               <Typography variant="h4" style={{ fontWeight: 600, fontSize: '2rem' }}>{progress}%</Typography>
