@@ -65,11 +65,12 @@ header {
 
 .icons {
   display: flex;
-  justify-content: space-evenly;
+  margin-right: 10px;
 }
 
 .icons img {
-  margin-left: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .navbar-log {
@@ -92,8 +93,9 @@ header {
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
-  margin-left: 5px;
+  margin-left: 10px;
 }
+
 
 .buttonsNav:hover {
   background-color: #4caf50;
@@ -102,23 +104,23 @@ header {
   transform: translateY(-7px);
 }
 
-
 #signOutBut {
   margin-left: 100px;
 }
 
 .lang {
-  margin-top: 0px;
+  height: 40px;
+  margin-top: 7px;
   margin-right: 20px;
   position: relative;
-  display: inline-block;
+  display: flex;
   border: none;
 }
 
 .lang button {
   transition: background-color 0.3s ease;
   cursor: pointer;
-  padding: 2px 12px;
+  padding: 2px 10px;
   text-transform: uppercase;
   color: #000;
   background-color: #588157;
@@ -237,12 +239,19 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .icons img  {
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
   }
 
   .icons {
-    margin-bottom: 20px;
-    margin-right: 25px;
+    display: flex;
+    margin-right: 0px;
   }
 
   .buttonNav {
@@ -300,19 +309,14 @@ header {
   }
 
   .lang {
-    margin-right: 0px;
-    width: 15px;
-    height: 15px;
-    position: relative;
-    display: flex;
-    align-items: start;
-    border: none;
+    height: 30px;
   }
+
 
   .lang button {
     transition: background-color 0.3s ease;
     cursor: pointer;
-    padding: 1px 4px;
+    padding: 0px 4px;
     text-transform: uppercase;
     color: #000;
     background-color: #588157;

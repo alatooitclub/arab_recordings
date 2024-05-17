@@ -5,7 +5,6 @@ import { useLang } from "../../hooks/useLang";
 import { setLang } from "../../contexts/lang";
 import logo from "../../assets/logo.svg";
 import profile from "../../assets/profile.svg";
-import bookmark from "../../assets/bookmark.svg";
 import flagUSA from "../../assets/flagUSA.svg";
 import flagRU from "../../assets/flagRU.svg";
 import flagKG from "../../assets/flagKG.svg";
@@ -102,13 +101,13 @@ const Header = () => {
                   </ul>
                 )}
               </div>
+              <div className={classes.icons}>
+                <NavLink to="/profilePage" style={{ textDecoration: "none", margin: "10px" }}>
+                   <img src={profile} alt="Profile-icon" />
+                </NavLink>
+              </div>
               {isAuth ? (
                 <>
-                  <div className={classes.icons}>
-                    <img src={profile} alt="Profile-icon" />
-                    <img src={bookmark} alt="Bookmark-icon" />
-
-                  </div>
                   <button className={classes.buttonsNav} id="signOutBut" onClick={handleLogout}>
                     {translations[lang].header.signOut}
                   </button>
@@ -116,12 +115,12 @@ const Header = () => {
               ) : (
                 <>
                   <button className={`${classes.buttonsNav} ${classes.loginButton}`}>
-                    <NavLink to="/login" style={{ textDecoration: "none", margin: "10px" }}>
+                    <NavLink to="/login" style={{ textDecoration: "none", margin: "0px" }}>
                       {translations[lang].header.signIn}
                     </NavLink>
                   </button>
                   <button className={classes.buttonsNav}>
-                    <NavLink to="/register" style={{ textDecoration: "none", margin: "10px" }}>
+                    <NavLink to="/register" style={{ textDecoration: "none", margin: "0px" }}>
                       {translations[lang].header.signUp}
                     </NavLink>
                   </button>
@@ -155,9 +154,7 @@ const Header = () => {
             <div className={classes["navbar-log"]} id="navbar-log">
               {isAuth ? (
                 <>
-                  <div className={classes.icons}>
-                    <img src={profile} alt="Profile-icon" />
-                  </div>
+                
                   <button className={classes.buttonNav} id="signOutBut" onClick={handleLogout}>
                     {translations[lang].header.signOut}
                   </button>

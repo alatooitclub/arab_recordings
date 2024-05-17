@@ -17,6 +17,7 @@
     "axios": "^1.6.8",
     "effector": "^23.2.1",
     "effector-react": "^23.2.0",
+    "mdb-react-ui-kit": "^8.0.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -10,11 +10,11 @@ import SuperAdmin from '../pages/SuperAdmin/SuperAdmin.jsx';
 import Footer from "../components/Footer/Footer.jsx";
 import Admin from "../pages/Admin/pages/mainPageAdmin/Admin.jsx";
 import Recording from "../pages/Admin/pages/RecordingPage/Recording.jsx";
+import ProfilePage from "../pages/UserProfile/ProfilePage.jsx";
 
 const Router = () => {
     const { isAuth, setIsAuth } = useAuth();
-    console.log(isAuth);
-    const isRoleAdmin = true
+    console.log(isAuth);    
     return (
         <>
             <Header />
@@ -24,11 +24,9 @@ const Router = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/reset" element={<ResetPassword />} />
                 <Route path="/superAdmin" element={<SuperAdmin />} />
-                {isRoleAdmin && <>
-                    <Route path="/admin" element={<Admin />} />
-                    <Route path="/recording" element={<Recording />} />
-                </>}
-                
+                <Route path="/admin" element={<Admin />} />
+                <Route path="/recording" element={<Recording />} />
+                <Route path="/profilePage" element={<ProfilePage />} />  
             </Routes>
             <Footer/>
 
