@@ -62,6 +62,9 @@ const Header = () => {
                 <NavLink to="/mainPage" style={{ textDecoration: "none", margin: "20px" }}>
                   {translations[lang].header.home_btn}
                 </NavLink>
+                <NavLink to="/homePage" style={{ textDecoration: "none", margin: "20px" }}>
+                  HomePage
+                </NavLink>
               </div>
               <div>
                 <NavLink to="/superAdmin" style={{ textDecoration: "none", margin: "20px" }}>

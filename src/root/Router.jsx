@@ -11,6 +11,7 @@ import Footer from "../components/Footer/Footer.jsx";
 import Admin from "../pages/Admin/pages/mainPageAdmin/Admin.jsx";
 import Recording from "../pages/Admin/pages/RecordingPage/Recording.jsx";
 import ProfilePage from "../pages/UserProfile/ProfilePage.jsx";
+import HomePage from "../pages/HomePage/HomePage.jsx";
 
 const Router = () => {
     const { isAuth, setIsAuth } = useAuth();
@@ -20,6 +21,7 @@ const Router = () => {
             <Header />
             <Routes>
                 <Route path="/mainPage" element={<MainPage />} /> 
+                <Route path="/homePage" element={<HomePage />} /> 
                 <Route path="/register" element={<Regist />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/reset" element={<ResetPassword />} />
