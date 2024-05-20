@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLang } from "../../hooks/useLang";
-import { setLang } from "../../contexts/lang";
+import { useAuth } from '../../../../contexts/AuthContext';
+import { useForm } from 'react-hook-form';
+import { useLang } from "../../../../hooks/useLang";
+import { setLang } from "../../../../contexts/lang";
+import classes from "./DeleteSA.module.css";
 
-const DelateAdminExpert = ({classes}) => {
+const DelateSA = () => {
     const [identifier, setIdentifier] = useState('');
     const [message, setMessage] = useState('');
     const [user, setUser] = useState(null);
@@ -19,42 +22,45 @@ const DelateAdminExpert = ({classes}) => {
         setIdentifier(e.target.value);
     };
 
-    const deleteUserRoles = async () => {
+    const deleteUser = async () => {
+        if (!isAuth || authRole !== "SuperAdmin") {
+            console.error("Only super admins can register a new expert.");
+            return;
+        }
         try {
-        const response = await axios.put(`/users/${identifier}`);
-        setUser(response.data.user);
-        setMessage(response.data.message);
+            const response = await axios.delete(`/experts/${identifier}`);
+            setUser(response.data.user);  
+            setMessage(response.data.message);
         } catch (error) {
-        setMessage('The role had not delated because of the error');
+            setMessage(`Failed to delete the expert because of an error: ${error.response?.data?.message || error.message}`);
         }
     };
     return ( 
         <div className={classes.section_content}>
-            <h1 className={classes.title}>Delete role</h1>
-            <div className={classes.form}>
+            <h1 className={classes.title}>Delete Role</h1>
+            <form className={classes.form}>
                 <div className={classes.word_info}>
                     <input
                         type="text"
-                        placeholder="Enter nickname or e-mail"
+                        placeholder="* Email"
                         value={identifier}
                         onChange={handleInputChange}
                     />
-                    <button onClick={deleteUserRoles}>Delete role</button>
                 </div>
-                <div>
+                <button onClick={deleteUser} className={classes.submitButton}>Delete Role</button>
+                {/* <div>
                     {message && <p>{message}</p>}
                     {user && (
                         <div>
                             <h2>User info:</h2>
-                            <p>nickname: {user.username}</p>
                             <p>e-mail: {user.email}</p>
                             <p>role: {user.roles.join(', ')}</p>
                         </div>
                     )}
-                </div>
-            </div>
+                </div> */}
+            </form>
         </div>
      );
 }
  
-export default DelateAdminExpert;
+export default DelateSA;

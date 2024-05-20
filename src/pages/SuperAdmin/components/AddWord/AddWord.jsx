@@ -1,12 +1,13 @@
 import React from 'react';
+import axios from 'axios'; 
 import { useForm } from 'react-hook-form';
-import classes from './SuperAdmin.module.css';
-import { useLang } from "../../hooks/useLang";
-import { setLang } from "../../contexts/lang";
+import { useAuth } from '../../../../contexts/AuthContext'; 
+import { useLang } from "../../../../hooks/useLang";
+import { setLang } from "../../../../contexts/lang";
+import classes from './AddWord.module.css';
 
-
-const AddWord = ({classes}) => {
-
+const AddWord = () => {
+    const { isAuth, authRole } = useAuth(); 
     const {
         register,
         formState: {errors},
@@ -22,6 +23,11 @@ const AddWord = ({classes}) => {
     };
     
     const onSubmitWord = async(data) => {
+        if (!isAuth || authRole !== "Admin") {
+            console.error("Only admins can register a new expert.");
+            return;
+        }
+
         const dataWord = {
             word: data.nickname,
             level: data.mail,
@@ -29,11 +35,12 @@ const AddWord = ({classes}) => {
         }
         console.log(dataWord)
         try {
-            const res = await apiService.post('/api/v1/auth/register/admin', dataWord)
+            const res = await axios.post('/api/v1/auth/register/admin', dataWord)
             console.log(res);
-
+            alert('Word added successfully');
         } catch (error) {
             console.log(error);
+            alert(`Failed to add word: ${error.response?.data?.message || error.message}`);
         }
     }
 
@@ -45,7 +52,7 @@ const AddWord = ({classes}) => {
                         <div>
                             <input
                                 type="text"
-                                placeholder="Word"
+                                placeholder="* Word"
                                 {...register('word', {required: true})}
                                 aria-invalid={errors.word ? 'true' : 'false'}
                                 className={errors.word && classes.errorInput}
@@ -58,7 +65,7 @@ const AddWord = ({classes}) => {
 
                             <input
                                 type="text"
-                                placeholder="Transcription"
+                                placeholder="* Transcription"
                                 {...register('transcription', {required: true})}
                                 aria-invalid={errors.transcription ? 'true' : 'false'}
                                 className={errors.transcription && classes.errorInput}
@@ -75,12 +82,10 @@ const AddWord = ({classes}) => {
                                 {...register('level', {required: true})}
                                 aria-invalid={errors.level ? 'true' : 'false'}
                                 className={errors.level && classes.errorInput}>
-                                    <option value="DEFAULT" disabled>Level</option>
-                                    <option value="level_a1">A1</option>
-                                    <option value="level_a2">A2</option>
-                                    <option value="level_b1">B1</option>
-                                    <option value="level_b2">B2</option>
-                                    <option value="level_c1">C1</option>
+                                    <option value="DEFAULT" disabled>* Level</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
                             </select>
                             {errors.level?.type === 'required' && (
                                 <p className={classes.error} role="alert">
