@@ -45,44 +45,44 @@ const Regist = () => {
 
     return (
         <div id={classes.form} className="flex_container full-page">
-            <span className={classes.text_form}>Registration</span>
+            <span className={classes.text_form}>{translations[lang].regist.title_regist}</span>
             <form id="flex_container" className={classes.formR} onSubmit={handleSubmit(onSubmit)}>
                 <input
                     type="text"
-                    placeholder="* Nickname"
+                    placeholder={translations[lang].regist.plaseh_regist.nicknamePH}
                     {...register('nickname', {required: true})}
                     aria-invalid={errors.firstName ? 'true' : 'false'}
                     className={errors.firstName && classes.errorInput}
                 />
                 {errors.firstName?.type === 'required' && (
                     <p role="alert" className={classes.error}>
-                        Nickname is required
+                        {translations[lang].regist.alert_regist.nicknameAl}
                     </p>
                 )}
 
                 <input
                     type="email"
-                    placeholder="* Email"
+                    placeholder={translations[lang].regist.plaseh_regist.emailPH}
                     {...register('mail', {required: true})}
                     aria-invalid={errors.mail ? 'true' : 'false'}
                     className={errors.mail && classes.errorInput}
                 />
                 {errors.mail?.type === 'required' && (
                     <p className={classes.error} role="alert">
-                        Email Address is required
+                        {translations[lang].regist.alert_regist.emailAl}
                     </p>
                 )}
 
                 <input
                     type="number"
-                    placeholder="* Age"
+                    placeholder={translations[lang].regist.plaseh_regist.agePH}
                     {...register('age', {required: true})}
                     aria-invalid={errors.age ? 'true' : 'false'}
                     className={errors.age && classes.errorInput}
                 />
                 {errors.password?.type === 'required' && (
                     <p role="alert" className={classes.error}>
-                        Age is required
+                        {translations[lang].regist.alert_regist.ageAl}
                     </p>
                 )}
 
@@ -90,20 +90,20 @@ const Regist = () => {
                     {...register('gender', {required: true})}
                     aria-invalid={errors.gender ? 'true' : 'false'}
                     className={errors.gender && classes.errorInput}>
-                    <option value="DEFAULT" disabled>* Gender</option>
-                    <option value="none">Don't want to say</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="DEFAULT" disabled>{translations[lang].regist.plaseh_regist.genderPH.gender}</option>
+                    <option value="none">{translations[lang].regist.plaseh_regist.genderPH.none}</option>
+                    <option value="male">{translations[lang].regist.plaseh_regist.genderPH.male}</option>
+                    <option value="female">{translations[lang].regist.plaseh_regist.genderPH.female}</option>
                 </select>
                 {errors.gender?.type === 'required' && (
                     <p className={classes.error} role="alert">
-                        Gender is required
+                        {translations[lang].regist.alert_regist.genderAl}
                     </p>
                 )}
 
                 <input
                     type="password"
-                    placeholder="* Password"
+                    placeholder={translations[lang].regist.plaseh_regist.passwordPH}
                     {...register('password', {required: true,
                         minLength: {
                             value: 2,
@@ -114,22 +114,22 @@ const Regist = () => {
                 />
                 {errors.password?.type === 'required' && (
                     <p role="alert" className={classes.error}>
-                        Passwords is required
+                        {translations[lang].regist.alert_regist.passwordAl}
                     </p>
                 )}
                 {errors.password?.type === 'minLength' && (
                     <p role="alert" className={classes.error}>
-                        Passwords is required
+                        {translations[lang].regist.alert_regist.passwordLN}
                     </p>
                 )}
 
                 <input
                     type="password"
-                    placeholder="* Confirm Password"
+                    placeholder={translations[lang].regist.plaseh_regist.passwordCF}
                     {...register('passwordConfirmation', {
-                        required: 'Confirm passwords is required',
+                        required: (translations[lang].regist.alert_regist.passwordAl),
                         validate: value =>
-                            value === watch('password') || "The passwords do not match"
+                            value === watch('password') || (translations[lang].regist.alert_regist.passwordMT)
                     })}
                     aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
                     className={errors.passwordConfirmation && classes.errorInput}
@@ -140,8 +140,8 @@ const Regist = () => {
                     </p>
                 )}
                 {/*<p>{errAlert}</p>*/}
-                <button type='submit' className={classes.submitButton}>Create</button>
-                <p className="message">Already registered? <NavLink to="/login">Log in</NavLink></p>
+                <button type='submit' className={classes.submitButton}>{translations[lang].regist.btn_submit}</button>
+                <p className="message">{translations[lang].regist.sub_regist} <NavLink to="/login">{translations[lang].regist.login_regist}</NavLink></p>
             </form>
         </div>
     );

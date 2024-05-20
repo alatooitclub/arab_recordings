@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
 import { Typography, useTheme, SxProps } from '@mui/material';
 import { Microphone } from 'phosphor-react';
+import { useLang } from "../../../../../hooks/useLang";
+import { setLang } from "../../../../../contexts/lang";
 
 export interface TotalCorrectRecordingsProps {
   sx?: SxProps;
@@ -16,6 +18,13 @@ export function TotalCorrectRecordings({ sx }: TotalCorrectRecordingsProps): Rea
   const [recordings, setRecordings] = useState('0');
   const [recordCorrect, setRecordCorrect] = useState('0');
   const [recordWrong, setRecordWrong] = useState('0');
+
+  const { lang, translations } = useLang();
+
+  const handleSwitchLang = (lang) => {
+      setLang(lang);
+      localStorage.setItem("lang", JSON.stringify(lang));
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,7 +58,7 @@ export function TotalCorrectRecordings({ sx }: TotalCorrectRecordingsProps): Rea
         <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
           <Stack spacing={1}>
             <Typography color="text.secondary" variant="overline" sx={{ fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' } }}>
-              Recordings Statistics
+              {translations[lang].super_admin.statistics.record}
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: 600, fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' } }}>
               <span>{recordings}</span> _ <span style={{color: 'green'}}>{recordCorrect}%</span> _ <span style={{color: 'red'}}>{recordWrong}%</span>

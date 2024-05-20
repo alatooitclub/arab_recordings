@@ -7,6 +7,8 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Stack from '@mui/material/Stack';
 import { SxProps, Typography, useTheme } from '@mui/material';
 import { ListBullets } from 'phosphor-react';
+import { useLang } from "../../../../../hooks/useLang";
+import { setLang } from "../../../../../contexts/lang";
 
 export interface TasksProgressProps {
   sx?: SxProps;
@@ -15,6 +17,13 @@ export interface TasksProgressProps {
 export function TasksProgress({ sx }: TasksProgressProps): React.JSX.Element {
   const theme = useTheme();
   const [progress, setProgress] = React.useState(0);  
+
+  const { lang, translations } = useLang();
+
+  const handleSwitchLang = (lang) => {
+      setLang(lang);
+      localStorage.setItem("lang", JSON.stringify(lang));
+  };
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +56,7 @@ export function TasksProgress({ sx }: TasksProgressProps): React.JSX.Element {
           <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
               <Typography color="text.secondary" gutterBottom variant="overline">
-                Task Progress
+                {translations[lang].super_admin.statistics.task}
               </Typography>
               <Typography variant="h4" style={{ fontWeight: 600, fontSize: '2rem' }}>{progress}%</Typography>
             </Stack>

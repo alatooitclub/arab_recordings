@@ -24,7 +24,7 @@ const DelateSA = () => {
 
     const deleteUser = async () => {
         if (!isAuth || authRole !== "SuperAdmin") {
-            console.error("Only super admins can register a new expert.");
+            console.error(translations[lang].super_admin.delate_expert.errors_word.console_error_auth);
             return;
         }
         try {
@@ -32,22 +32,22 @@ const DelateSA = () => {
             setUser(response.data.user);  
             setMessage(response.data.message);
         } catch (error) {
-            setMessage(`Failed to delete the expert because of an error: ${error.response?.data?.message || error.message}`);
+            setMessage(translations[lang].super_admin.delate_expert.errors_word.faild_delate` ${error.response?.data?.message || error.message}`);
         }
     };
     return ( 
         <div className={classes.section_content}>
-            <h1 className={classes.title}>Delete Role</h1>
+            <h1 className={classes.title}>{translations[lang].super_admin.delate_expert.title_delate}</h1>
             <form className={classes.form}>
                 <div className={classes.word_info}>
                     <input
                         type="text"
-                        placeholder="* Email"
+                        placeholder={translations[lang].super_admin.delate_expert.placeholder_delate.emailPH}
                         value={identifier}
                         onChange={handleInputChange}
                     />
                 </div>
-                <button onClick={deleteUser} className={classes.submitButton}>Delete Role</button>
+                <button onClick={deleteUser} className={classes.submitButton}>{translations[lang].super_admin.delate_expert.btn_delate.delateBtn}</button>
                 {/* <div>
                     {message && <p>{message}</p>}
                     {user && (

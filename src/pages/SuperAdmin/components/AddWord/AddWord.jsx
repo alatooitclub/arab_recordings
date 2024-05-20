@@ -23,8 +23,8 @@ const AddWord = () => {
     };
     
     const onSubmitWord = async(data) => {
-        if (!isAuth || authRole !== "Admin") {
-            console.error("Only admins can register a new expert.");
+        if (!isAuth || authRole !== "SuperAdmin") {
+            console.error(translations[lang].super_admin.add_word.errors_word.console_error_auth);
             return;
         }
 
@@ -35,44 +35,44 @@ const AddWord = () => {
         }
         console.log(dataWord)
         try {
-            const res = await axios.post('/api/v1/auth/register/admin', dataWord)
+            const res = await axios.post('/api/v1/auth/register/superadmin', dataWord)
             console.log(res);
-            alert('Word added successfully');
+            alert(translations[lang].super_admin.add_word.errors_word.successful_add);
         } catch (error) {
             console.log(error);
-            alert(`Failed to add word: ${error.response?.data?.message || error.message}`);
+            alert(translations[lang].super_admin.add_word.errors_word.faild_add `${error.response?.data?.message || error.message}`);
         }
     }
 
     return ( 
             <div className={classes.section_content}>
-                <h2 className={classes.title}>Add Word</h2>
+                <h2 className={classes.title}>{translations[lang].super_admin.add_word.title_word}</h2>
                 <form className={classes.form} onSubmit={handleSubmit(onSubmitWord)}>
                     <div className={classes.word_info}>
                         <div>
                             <input
                                 type="text"
-                                placeholder="* Word"
+                                placeholder={translations[lang].super_admin.add_word.placeholder_word.wordPH}
                                 {...register('word', {required: true})}
                                 aria-invalid={errors.word ? 'true' : 'false'}
                                 className={errors.word && classes.errorInput}
                             />
                             {errors.word?.type === 'required' && (
                                 <p role="alert" className={classes.error}>
-                                    Word is required
+                                    {translations[lang].super_admin.add_word.alert_word.wordAL}
                                 </p>
                             )}
 
                             <input
                                 type="text"
-                                placeholder="* Transcription"
+                                placeholder={translations[lang].super_admin.add_word.placeholder_word.transcriptionPH}
                                 {...register('transcription', {required: true})}
                                 aria-invalid={errors.transcription ? 'true' : 'false'}
                                 className={errors.transcription && classes.errorInput}
                             />
                             {errors.transcription?.type === 'required' && (
                                 <p role="alert" className={classes.error}>
-                                    Transcription is required
+                                    {translations[lang].super_admin.add_word.alert_word.transcriptionAL}
                                 </p>
                             )}
                         </div>
@@ -82,19 +82,19 @@ const AddWord = () => {
                                 {...register('level', {required: true})}
                                 aria-invalid={errors.level ? 'true' : 'false'}
                                 className={errors.level && classes.errorInput}>
-                                    <option value="DEFAULT" disabled>* Level</option>
-                                    <option value="easy">Easy</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="hard">Hard</option>
+                                    <option value="DEFAULT" disabled>{translations[lang].super_admin.add_word.placeholder_word.levelPH.level}</option>
+                                    <option value="easy">{translations[lang].super_admin.add_word.placeholder_word.levelPH.easy}</option>
+                                    <option value="medium">{translations[lang].super_admin.add_word.placeholder_word.levelPH.medium}</option>
+                                    <option value="hard">{translations[lang].super_admin.add_word.placeholder_word.levelPH.hard}</option>
                             </select>
                             {errors.level?.type === 'required' && (
                                 <p className={classes.error} role="alert">
-                                    Level is required
+                                    {translations[lang].super_admin.add_word.alert_word.levelAL}
                                 </p>
                             )}
                         </div>
                     </div>
-                    <button type='submit' className={classes.submitButton}>Submit</button>
+                    <button type='submit' className={classes.submitButton}>{translations[lang].super_admin.add_word.btn_word.submitBtn}</button>
                 </form>
             </div>
      );

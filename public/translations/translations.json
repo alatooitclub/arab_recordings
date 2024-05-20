@@ -20,6 +20,119 @@
       "itClub": "Ala-Too IT-Club",
       "doneBy": "Done by University students",
       "rights": "All rights reserved by Ala-Too IT Club"
+    },
+
+    "regist": {
+      "title_regist": "Registration",
+      "sub_regist": "Already registered?",
+      "login_regist": "Log in",
+      "btn_submit": "Create",
+      "plaseh_regist": {
+        "nicknamePH": "* Nickname",
+        "emailPH": "* Email",
+        "agePH": "* Age",
+        "genderPH": {
+          "gender": "* Gender",
+          "none": "Don't want to say",
+          "male": "Male",
+          "female": "Female"
+        },
+        "passwordPH": "* Password",
+        "passwordCF": "* Confirm Password"
+      },
+      "alert_regist" : {
+        "nicknameAl": "Nickname is required",
+        "emailAl": "Email Address is required",
+        "ageAl": "Age is required",
+        "genderAl": "Gender is required",
+        "passwordAl": "Passwords is required",
+        "passwordLN": "Password must be at least 8 characters long",
+        "passwordMT": "The passwords do not match"
+      }
+    },
+
+    "super_admin": {
+      "add_word": {
+        "title_word": "Add Word",
+        "errors_word": {
+          "console_error_auth": "Only super admins can give roles.",
+          "successful_add": "Word added successfully.",
+          "faild_add": "Failed to add word:"
+        },
+        "placeholder_word": {
+          "wordPH": "* Word",
+          "transcriptionPH": "* Transcription",
+          "levelPH": {
+            "level": "* Level",
+            "easy": "Easy",
+            "medium": "Medium",
+            "hard": "Hard"
+          }
+        },
+        "alert_word": {
+          "wordAL": "Word is required.",
+          "transcriptionAL": "Transcription is required.",
+          "levelAL": "Level is required."
+        },
+        "btn_word": {
+          "submitBtn": "Submit"
+        }
+      },
+      "delate_expert": {
+        "title_delate": "Delete Role",
+        "errors_word": {
+          "console_error_auth": "Only super admins can give roles.",
+          "faild_delate": "Failed to delete the expert because of an error:"
+        },
+        "placeholder_delate": {
+          "emailPH": "* Email"
+        },
+        "btn_delate": {
+          "delateBtn": "Delete"
+        }
+      },
+      "give_role": {
+        "title_role": "Give Role",
+        "errors_role": {
+          "console_error_auth": "Only super admins can give roles.",
+          "successful_give": "given role successfully",
+          "faild_give": "Failed to give role"
+        },
+        "placeholder_role": {
+          "emailPH": "* Email",
+          "rolePH": {
+            "role": "* Role",
+            "student": "Student",
+            "expert": "Expert",
+            "admin": "Admin",
+            "superAdmin": "Super Admin"
+          },
+          "passwordPH": "* Password",
+          "passwordCF": "* Confirm Password"
+        },
+        "alert_role": {
+          "emailAL": "Email Address is required.",
+          "roleAL": "Role is required.",
+          "levelAL": "Level is required.",
+          "passwordAL": "Password is required",
+          "passwordLN": "Password must be at least 8 characters long",
+          "passwordMT": "The passwords do not match"
+        },
+        "btn_role": {
+          "submitBtn": "Submit"
+        }
+      },
+      "statistics": {
+        "record": "Recordings Statistics",
+        "users": "Total Users",
+        "task": "Task Progress",
+        "words": "Total Words"
+      },
+      "rating": {
+        "correctW": "Correct with tajwid",
+        "correctWO": "Correct without tajwid",
+        "wrong": "Wrong"
+      }
     }
   },
 
@@ -45,6 +158,120 @@
       "itClub": "Ала-Тоо IT-Club",
       "doneBy": "Сделано студентами университета",
       "rights": "Все права защищены IT-клубом Ала-Тоо"
+    },
+
+    "regist": {
+      "title_regist": "Регистрация",
+      "sub_regist": "Уже зарегистрированы?",
+      "login_regist": "Войти",
+      "btn_submit": "Создать",
+      "plaseh_regist": {
+        "nicknamePH": "* Ник",
+        "emailPH": "* Email",
+        "agePH": "* Возраст",
+        "genderPH": {
+          "gender": "* Пол",
+          "none": "Не хочу говорить",
+          "male": "Мужчина",
+          "female": "Женщина"
+        },
+        "passwordPH": "* Пароль",
+        "passwordCF": "* Подтвердить Пароль"
+      },
+      "alert_regist" : {
+        "nicknameAl": "Ник обязателен",
+        "emailAl": "Адрес электронной почты обязателен",
+        "ageAl": "Возраст обязателен",
+        "genderAl": "Пол обязателен",
+        "passwordAl": "Пароль обязателен",
+        "passwordLN": "Пароль должен быть не менее 8 символов",
+        "passwordMT": "Пароли не совпадают"
+      }
+    },
+
+
+    "super_admin": {
+      "add_word": {
+        "title_word": "Добавить Слово",
+        "errors_word": {
+          "console_error_auth": "Только супер администраторы могут давать роли.",
+          "successful_add": "Слово успешно добавлено.",
+          "faild_add": "Не удалось добавить слово:"
+        },
+        "placeholder_word": {
+          "wordPH": "* Слово",
+          "transcriptionPH": "* Транскрипция",
+          "levelPH": {
+            "level": "* Уровень",
+            "easy": "Легко",
+            "medium": "Средний",
+            "hard": "Сложный"
+          }
+        },
+        "alert_word": {
+          "wordAL": "Необходимо указать слово.",
+          "transcriptionAL": "Необходима транскрипция.",
+          "levelAL": "Необходимо указать уровень."
+        },
+        "btn_word": {
+          "submitBtn": "Отправить"
+        }
+      },
+      "delate_expert": {
+        "title_delate": "Удалить роль",
+        "errors_word": {
+          "console_error_auth": "Только суперадминистраторы могут назначать роли.",
+          "faild_delate": "Не удалось удалить эксперта из-за ошибки.:"
+        },
+        "placeholder_delate": {
+          "emailPH": "* Email"
+        },
+        "btn_delate": {
+          "delateBtn": "Удалить"
+        }
+      },
+      "give_role": {
+        "title_role": "Назначить роль",
+        "errors_role": {
+          "console_error_auth": "Только суперадминистраторы могут назначать роли.",
+          "successful_give": "роль успешно назначена",
+          "faild_give": "Не удалось назначить роль"
+        },
+        "placeholder_role": {
+          "emailPH": "* Email",
+          "rolePH": {
+            "role": "* Роль",
+            "student": "Студент",
+            "expert": "Эксперт",
+            "admin": "Администратор",
+            "superAdmin": "Суперадмин"
+          },
+          "passwordPH": "* Пароль",
+          "passwordCF": "* Подтвердить пароль"
+        },
+        "alert_role": {
+          "emailAL": "Требуется адрес электронной почты.",
+          "roleAL": "Требуется указать роль.",
+          "levelAL": "Требуется указать уровень.",
+          "passwordAL": "Требуется указать пароль.",
+          "passwordLN": "Пароль должен быть длиной не менее 8 символов.",
+          "passwordMT": "Пароли не совпадают."
+        },
+        "btn_role": {
+          "submitBtn": "Отправить"
+        }
+      },
+      "statistics": {
+        "record": "Статистика записей",
+        "users": "Всего пользователей",
+        "task": "Прогресс задачи",
+        "words": "Общее количество слов"
+      },
+      "rating": {
+        "correctW": "Правильное чтение с таджвидом",
+        "correctWO": "Правильное чтение без таджвида",
+        "wrong": "Неправильно"
+      }
     }
   },
 
@@ -71,6 +298,119 @@
       "itClub": "Ала-Тоо IT-Club",
       "doneBy": "Университеттин студенттери тарабынан жасалган",
       "rights": "Ала-Тоо IT-клубунун бардык укуктары сакталган"
+    },
+
+    "regist": {
+      "title_regist": "Каттоо",
+      "sub_regist": "Катталгансызбы?",
+      "login_regist": "Кириңиз",
+      "btn_submit": "Түзүү",
+      "plaseh_regist": {
+        "nicknamePH": "* Лакап ат",
+        "emailPH": "* Email",
+        "agePH": "* Жаш",
+        "genderPH": {
+          "gender": "* Жыныс",
+          "none": "Айткым келбейт",
+          "male": "Эркек",
+          "female": "Аял"
+        },
+        "passwordPH": "* Купуя сөз",
+        "passwordCF": "* Купуя сөздү ыраста"
+      },
+      "alert_regist" : {
+        "nicknameAl": "Лакап ат талап кылынат",
+        "emailAl": "Электрондук почта дареги талап кылынат",
+        "ageAl": "Жашы талап кылынат",
+        "genderAl": "Жыныс талап кылынат",
+        "passwordAl": "Купуя сөздөр талап кылынат",
+        "passwordLN": "Купуя сөз кеминде 8 белгиден турушу керек",
+        "passwordMT": "Купуя сөздөр дал келбейт"
+      }
+    },
+
+    "super_admin": {
+      "add_word": {
+        "title_word": "Сөз Кошуу",
+        "errors_word": {
+          "console_error_auth": "Ролдорду супер админдер гана бере алат.",
+          "successful_add": "Сөз ийгиликтүү кошулду.",
+          "faild_add": "Сөз кошулбай калды:"
+        },
+        "placeholder_word": {
+          "wordPH": "* Сөз",
+          "transcriptionPH": "* Транскрипция",
+          "levelPH": {
+            "level": "* Деңгээл",
+            "easy": "Оңой",
+            "medium": "Орто",
+            "hard": "Оор"
+          }
+        },
+        "alert_word": {
+          "wordAL": "Сөз талап кылынат",
+          "transcriptionAL": "Транскрипция талап кылынат",
+          "levelAL": "Деңгээл талап кылынат"
+        },
+        "btn_word": {
+          "submitBtn": "Тапшыруу"
+        }
+      },
+      "delate_expert": {
+        "title_delate": "Ролду жок кылуу",
+        "errors_word": {
+          "console_error_auth": "Ролдорду супер админдер гана бере алат.",
+          "faild_delate": "Катадан улам эксперт жок кылынбай калды:"
+        },
+        "placeholder_delate": {
+          "emailPH": "* Email"
+        },
+        "btn_delate": {
+          "delateBtn": "Жок кылуу"
+        }
+      },
+      "give_role": {
+        "title_role": "Рол бер",
+        "errors_role": {
+          "console_error_auth": "Ролдорду супер админдер гана бере алат.",
+          "successful_give": "ролду ийгиликтүү тапшырды",
+          "faild_give": "Рол бере алган жок"
+        },
+        "placeholder_role": {
+          "emailPH": "* Email",
+          "rolePH": {
+            "role": "* Рол",
+            "student": "Студент",
+            "expert": "Эксперт",
+            "admin": "Админ",
+            "superAdmin": "Супер Админ"
+          },
+          "passwordPH": "* Купуя сөз",
+          "passwordCF": "* Купуя сөздү ыраста"
+        },
+        "alert_role": {
+          "emailAL": "Электрондук почта дареги талап кылынат.",
+          "roleAL": "Рол талап кылынат.",
+          "levelAL": "Деңгээл талап кылынат.",
+          "passwordAL": "Купуя сөз талап кылынат",
+          "passwordLN": "Купуя сөз кеминде 8 белгиден турушу керек",
+          "passwordMT": "Купуя сөздөр дал келбейт"
+        },
+        "btn_role": {
+          "submitBtn": "Тапшыруу"
+        }
+      },
+      "statistics": {
+        "record": "Озвучка статистикасы",
+        "users": "Жалпы колдонуучулар",
+        "task": "Тапшырманын жүрүшү",
+        "words": "Сөздөрдүн саны"
+      },
+      "rating": {
+        "correctW": "Тажвид менен туура",
+        "correctWO": "Тажвидсиз туура",
+        "wrong": "уура эмес"
+      }
     }
   }
 }

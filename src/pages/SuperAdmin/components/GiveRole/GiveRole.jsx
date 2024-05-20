@@ -24,7 +24,7 @@ const GiveRole = () => {
 
     const onSubmitAdminOrExpert = async (data) => {
         if (!isAuth || authRole !== "SuperAdmin") {
-            console.error("Only super admins can register a new expert.");
+            console.error(translations[lang].super_admin.give_role.errors_role.console_error_auth);
             return;
         }
 
@@ -37,21 +37,21 @@ const GiveRole = () => {
         try {
             const res = await axios.post('/api/v1/auth/register/admin', dataAdminExpert)
             console.log(res);
-            alert(`${role} registered successfully`);
+            alert(`${role} ` (translations[lang].super_admin.give_role.errors_role.successful_give));
         } catch (error) {
             console.log(error);
-            alert(`Failed to register ${role}: ${error.response?.data?.message || error.message}`);
+            alert((translations[lang].super_admin.give_role.errors_role.faild_give)` ${role}: ${error.response?.data?.message || error.message}`);
         }
     }
 
     return ( 
         <div className={classes.section_content}>
-            <h2 className={classes.title}>Give Role</h2>
+            <h2 className={classes.title}>{translations[lang].super_admin.give_role.title_role}</h2>
             <form className={classes.form} onSubmit={handleSubmit(onSubmitAdminOrExpert)}>
                 <div className={classes.word_info}>
                     <input
                         type="email"
-                        placeholder="* Email"
+                        placeholder={translations[lang].super_admin.give_role.placeholder_role.emailPH}
                         {...register('mail', {required: true})}
                         aria-invalid={errors.mail ? 'true' : 'false'}
                         className={errors.mail && classes.errorInput}
@@ -61,15 +61,15 @@ const GiveRole = () => {
                         {...register('role', {required: true})}
                         aria-invalid={errors.role ? 'true' : 'false'}
                         className={errors.role && classes.errorInput}>
-                        <option value="DEFAULT" disabled>* Role</option>
-                        <option value="student">Student</option>
-                        <option value="expert">Expert</option>
-                        <option value="admin">Admin</option>
-                        <option value="superAdmin">Super Admin</option>
+                        <option value="DEFAULT" disabled>{translations[lang].super_admin.give_role.placeholder_role.rolePH.role}</option>
+                        <option value="student">{translations[lang].super_admin.give_role.placeholder_role.rolePH.student}</option>
+                        <option value="expert">{translations[lang].super_admin.give_role.placeholder_role.rolePH.expert}</option>
+                        <option value="admin">{translations[lang].super_admin.give_role.placeholder_role.rolePH.admin}</option>
+                        <option value="superAdmin">{translations[lang].super_admin.give_role.placeholder_role.rolePH.superAdmin}</option>
                     </select>
                     {errors.role?.type === 'required' && (
                         <p className={classes.error} role="alert">
-                            Role is required
+                            {translations[lang].super_admin.give_role.alert_role.roleAL}
                         </p>
                     )}
                 </div>
@@ -77,30 +77,30 @@ const GiveRole = () => {
                 <div>
                     {errors.mail?.type === 'required' && (
                         <p className={classes.error} role="alert">
-                            Email Address is required
+                            {translations[lang].super_admin.give_role.alert_role.emailAL}
                         </p>
                     )}
                     
                     <input
                         type="password"
-                        placeholder="* Password"
+                        placeholder={translations[lang].super_admin.give_role.placeholder_role.passwordPH}
                         {...register('password', {required: true, minLength: 8})}
                         aria-invalid={errors.password ? 'true' : 'false'}
                         className={errors.password && classes.errorInput}
                     />
                     {errors.password && (
                         <p role="alert" className={classes.error}>
-                            {errors.password.type === 'required' ? 'Password is required' : 'Password must be at least 8 characters long'}
+                            {errors.password.type === 'required' ? (translations[lang].super_admin.give_role.alert_role.passwordAL) : (translations[lang].super_admin.give_role.alert_role.passwordLN)}
                         </p>
                     )}
 
                     <input
                         type="password"
-                        placeholder="* Confirm Password"
+                        placeholder={translations[lang].super_admin.give_role.placeholder_role.passwordCF}
                         {...register('passwordConfirmation', {
                             required: 'Confirm passwords is required',
                             validate: value =>
-                                value === watch('password') || "The passwords do not match"
+                                value === watch('password') || (translations[lang].super_admin.give_role.alert_role.passwordMT)
                         })}
                         aria-invalid={errors.passwordConfirmation ? 'true' : 'false'}
                         className={errors.passwordConfirmation && classes.errorInput}
@@ -111,7 +111,7 @@ const GiveRole = () => {
                         </p>
                     )}
                 </div>
-                <button type='submit' className={classes.submitButton}>Submit</button>
+                <button type='submit' className={classes.submitButton}>{translations[lang].super_admin.give_role.btn_role.submitBtn}</button>
             </form>
         </div>
      );

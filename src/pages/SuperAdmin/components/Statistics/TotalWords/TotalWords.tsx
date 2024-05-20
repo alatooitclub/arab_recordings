@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Avatar, Card, CardContent, Stack, SxProps, Typography, useTheme } from '@mui/material';
 import { ArrowDown, ArrowUp, NotePencil } from 'phosphor-react';
+import { useLang } from "../../../../../hooks/useLang";
+import { setLang } from "../../../../../contexts/lang";
 
 export interface TotalWordsProps {
   sx?: SxProps;
@@ -13,6 +15,13 @@ export function TotalWords({ sx }: TotalWordsProps): React.JSX.Element {
   const [wordsELData, setWordsELData] = useState({ value: '0', diff: 0, trend: 'up' });
   const [wordsMLData, setWordsMLData] = useState({ value: '0', diff: 0, trend: 'up' });
   const [wordsHLData, setWordsHLData] = useState({ value: '0', diff: 0, trend: 'up' });
+
+  const { lang, translations } = useLang();
+
+  const handleSwitchLang = (lang) => {
+      setLang(lang);
+      localStorage.setItem("lang", JSON.stringify(lang));
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,7 +75,7 @@ export function TotalWords({ sx }: TotalWordsProps): React.JSX.Element {
           <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
               <Typography color="text.secondary" variant="overline" sx={{ fontSize: { xs: '0.75rem', sm: '1rem' } }}>
-                Total Words
+                {translations[lang].super_admin.statistics.words}
               </Typography>
               <Typography variant="h4" sx={{ fontWeight: 600, fontSize: { xs: '1.5rem', sm: '2rem' } }}>
                 <span>{wordsData.value}</span> _ 

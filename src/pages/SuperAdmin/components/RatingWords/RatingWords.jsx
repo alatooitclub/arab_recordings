@@ -2,11 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './RatingWords.module.css';
 import { requests } from '../../../../components/Services/Requests';
+import { useLang } from "../../../../hooks/useLang";
+import { setLang } from "../../../../contexts/lang";
 
 export default function RatingWords() {
   const [products, setProducts] = useState(''); // Initialize with an empty string
   const [audioSrc, setAudioSrc] = useState('');
   const [rating, setRating] = useState(null);
+
+  const { lang, translations } = useLang();
+
+  const handleSwitchLang = (lang) => {
+      setLang(lang);
+      localStorage.setItem("lang", JSON.stringify(lang));
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -64,17 +73,17 @@ export default function RatingWords() {
           <button  
             className={`${styles.button} ${rating === 'right' ? styles.selected : ''} ${styles.correctWithTajwid}`} 
             onClick={() => handleRating('right')}>
-            Correct with tajwid
+            {translations[lang].super_admin.rating.correctW}
           </button>
           <button  
             className={`${styles.button} ${rating === 'without_tajwid' ? styles.selected : ''} ${styles.correctWithoutTajwid}`} 
             onClick={() => handleRating('without_tajwid')}>
-            Correct without tajwid
+            {translations[lang].super_admin.rating.correctWO}
           </button>
           <button  
             className={`${styles.button} ${rating === 'wrong' ? styles.selected : ''} ${styles.wrong}`} 
             onClick={() => handleRating('wrong')}>
-            Wrong
+            {translations[lang].super_admin.rating.wrong}
           </button>
         </div>
       </div>

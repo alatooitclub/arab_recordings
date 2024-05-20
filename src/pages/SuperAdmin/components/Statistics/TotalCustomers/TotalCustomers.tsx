@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
 import { SxProps, Theme, Typography, useTheme } from '@mui/material';
 import { ArrowDown, ArrowUp, Users } from 'phosphor-react';
+import { useLang } from "../../../../../hooks/useLang";
+import { setLang } from "../../../../../contexts/lang";
 
 export interface TotalCustomersProps {
   sx?: SxProps<Theme>;
@@ -17,6 +19,13 @@ export function TotalCustomers({ sx }: TotalCustomersProps): React.JSX.Element {
     diff: 0, 
     trend: 'up' 
   });
+
+  const { lang, translations } = useLang();
+
+  const handleSwitchLang = (lang) => {
+      setLang(lang);
+      localStorage.setItem("lang", JSON.stringify(lang));
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +66,7 @@ export function TotalCustomers({ sx }: TotalCustomersProps): React.JSX.Element {
           <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }} spacing={3}>
             <Stack spacing={1}>
               <Typography color="text.secondary" variant="overline">
-                Total Users
+                {translations[lang].super_admin.statistics.users}
               </Typography>
               <Typography variant="h4" style={{ fontWeight: 600, fontSize: '2rem' }}>
                 {customerData.value}
