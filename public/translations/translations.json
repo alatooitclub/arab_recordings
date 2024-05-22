@@ -133,6 +133,13 @@
         "correctWO": "Correct without tajwid",
         "wrong": "Wrong"
       }
+    },
+    "home_page": {
+      "welcome": "Welcome to Arabic Easy",
+      "title": "Learn language with Expert Guidance!",
+      "subtitle": "Receive personalized feedback and tailored learning plans that adapt to your progress and learning style.",
+      "login": "Sign in",
+      "regist": "Sign up"
     }
   },
 
@@ -272,6 +279,13 @@
         "correctWO": "Правильное чтение без таджвида",
         "wrong": "Неправильно"
       }
+    },
+    "home_page": {
+      "welcome": "Добро пожаловать в Arabic Easy",
+      "title": "Изучайте язык под руководством эксперта!",
+      "subtitle": "Получайте персонализированную обратную связь и индивидуальные учебные планы, которые адаптируются к вашему прогрессу и стилю обучения.",
+      "login": "Вход",
+      "regist": "Регистрация"
     }
   },
 
@@ -301,7 +315,7 @@
     },
 
     "regist": {
-      "title_regist": "Каттоо",
+      "title_regist": "Катталуу",
       "sub_regist": "Катталгансызбы?",
       "login_regist": "Кириңиз",
       "btn_submit": "Түзүү",
@@ -411,6 +425,13 @@
         "correctWO": "Тажвидсиз туура",
         "wrong": "уура эмес"
       }
+    },
+    "home_page": {
+      "welcome": "Arabic Easy кош келиңиз",
+      "title": "Эксперттик жетекчилик менен тил үйрөнүңүз!",
+      "subtitle": "Прогрессиңизге жана окуу стилиңизге ыңгайлашкан жекелештирилген пикирлерди жана ылайыкташтырылган окуу пландарын алыңыз.",
+      "login": "Кирүү",
+      "regist": "Катталуу"
     }
   }
 }
