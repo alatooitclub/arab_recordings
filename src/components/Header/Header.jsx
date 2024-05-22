@@ -50,70 +50,82 @@ const Header = () => {
         </div>
 
         {isMobile && (
-          <button className={classes.dropdownButton} onClick={handleToggleMenu}>
-            <img src={dropdownIcon} alt="Dropdown" />
-          </button>
+          <>
+            <div className={classes.lang}>
+              <button className={classes.langToggle} onClick={() => setShowLangMenu(!showLangMenu)}>
+                {lang === "en" && <img src={flagUSA} alt="English" />}
+                {lang === "ru" && <img src={flagRU} alt="Russian" />}
+                {lang === "kg" && <img src={flagKG} alt="Kyrgyz" />}
+              </button>
+              {showLangMenu && (
+                <ul className={classes.langMenu}>
+                  {["ru", "en", "kg"].filter(item => item !== lang).map(langItem => (
+                    <li key={langItem}>
+                      <button 
+                        className={`${classes.langOption} ${lang === langItem ? classes.activeLang : ''}`}
+                        onClick={() => { handleSwitchLang(langItem); setShowLangMenu(false); }}
+                      >
+                        {langItem === "en" && <img src={flagUSA} alt="English" />}
+                        {langItem === "ru" && <img src={flagRU} alt="Russian" />}
+                        {langItem === "kg" && <img src={flagKG} alt="Kyrgyz" />}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            {isAuth && (
+              <div className={classes.icons}>
+                <NavLink to="/profilePage" style={{ textDecoration: "none", margin: "10px" }}>
+                  <img src={profile} alt="Profile-icon" />
+                </NavLink>
+              </div>
+              )
+            }
+            <button className={classes.dropdownButton} onClick={handleToggleMenu}>
+              <img src={dropdownIcon} alt="Dropdown" />
+            </button>
+          </>
         )}
 
         {!isMobile && (
           <div className={classes.navbar} id="navbar">
-            <div className={classes.pages}>
-              <div>
-                <NavLink to="/mainPage" style={{ textDecoration: "none", margin: "20px" }}>
-                  {translations[lang].header.home_btn}
-                </NavLink>
-                <NavLink to="/homePage" style={{ textDecoration: "none", margin: "20px" }}>
-                  HomePage
-                </NavLink>
-                <NavLink to="/experts" style={{ textDecoration: "none", margin: "20px" }}>
-                  Experts
-                </NavLink>
-              </div>
-              <div>
-                <NavLink to="/superAdmin" style={{ textDecoration: "none", margin: "20px" }}>
-                  {translations[lang].header.admin_btn}
-                </NavLink>
-                <NavLink to="/admin" style={{ textDecoration: "none", margin: "20px" }}>
-                  {translations[lang].header.admin2_btn}
-                </NavLink>
-              </div>
+            <div className={classes.lang}>
+              <button className={classes.langToggle} onClick={() => setShowLangMenu(!showLangMenu)}>
+                {lang === "en" && <img src={flagUSA} alt="English" />}
+                {lang === "ru" && <img src={flagRU} alt="Russian" />}
+                {lang === "kg" && <img src={flagKG} alt="Kyrgyz" />}
+              </button>
+              {showLangMenu && (
+                <ul className={classes.langMenu}>
+                  {["ru", "en", "kg"].filter(item => item !== lang).map(langItem => (
+                    <li key={langItem}>
+                      <button 
+                        className={`${classes.langOption} ${lang === langItem ? classes.activeLang : ''}`}
+                        onClick={() => { handleSwitchLang(langItem); setShowLangMenu(false); }}
+                      >
+                        {langItem === "en" && <img src={flagUSA} alt="English" />}
+                        {langItem === "ru" && <img src={flagRU} alt="Russian" />}
+                        {langItem === "kg" && <img src={flagKG} alt="Kyrgyz" />}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         )}
 
-        {(!isMobile || showMenu) && (
-          <>
+        {(!isMobile) && (
+          <div className={classes.navbar}>
             <div className={classes["navbar-log"]} id="navbar-log">
-              <div className={classes.lang}>
-                <button className={classes.langToggle} onClick={() => setShowLangMenu(!showLangMenu)}>
-                  {lang === "en" && <img src={flagUSA} alt="English" />}
-                  {lang === "ru" && <img src={flagRU} alt="Russian" />}
-                  {lang === "kg" && <img src={flagKG} alt="Kyrgyz" />}
-                </button>
-                {showLangMenu && (
-                  <ul className={classes.langMenu}>
-                    {["ru", "en", "kg"].filter(item => item !== lang).map(langItem => (
-                      <li key={langItem}>
-                        <button 
-                          className={`${classes.langOption} ${lang === langItem ? classes.activeLang : ''}`}
-                          onClick={() => { handleSwitchLang(langItem); setShowLangMenu(false); }}
-                        >
-                          {langItem === "en" && <img src={flagUSA} alt="English" />}
-                          {langItem === "ru" && <img src={flagRU} alt="Russian" />}
-                          {langItem === "kg" && <img src={flagKG} alt="Kyrgyz" />}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-              <div className={classes.icons}>
-                <NavLink to="/profilePage" style={{ textDecoration: "none", margin: "10px" }}>
-                   <img src={profile} alt="Profile-icon" />
-                </NavLink>
-              </div>
               {isAuth ? (
                 <>
+                  <div className={classes.icons}>
+                    <NavLink to="/profilePage" style={{ textDecoration: "none", margin: "10px" }}>
+                      <img src={profile} alt="Profile-icon" />
+                    </NavLink>
+                  </div>
                   <button className={classes.buttonsNav} id="signOutBut" onClick={handleLogout}>
                     {translations[lang].header.signOut}
                   </button>
@@ -133,50 +145,32 @@ const Header = () => {
                 </>
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
 
       {showMenu && isMobile && (
         <> 
           <div className={`${classes.dropdownMenu} ${showMenu ? classes.show : ""}`}>
-            <div className={classes.pages}>
-              <div>
-                <NavLink to="/mainPage" style={{ textDecoration: "none", margin: "20px" }}>
-                  {translations[lang].header.home_btn}
-                </NavLink>
-              </div>
-              <div>
-                <NavLink to="/superAdmin" style={{ textDecoration: "none", margin: "20px" }}>
-                  {translations[lang].header.admin_btn}
-                </NavLink>
-              </div>
-              <div>
-                <NavLink to="/admin" style={{ textDecoration: "none", margin: "20px" }}>
-                  {translations[lang].header.admin2_btn}
-                </NavLink>
-              </div>
-            </div>
             <div className={classes["navbar-log"]} id="navbar-log">
               {isAuth ? (
                 <>
-                
-                  <button className={classes.buttonNav} id="signOutBut" onClick={handleLogout}>
+                  <div className={classes.buttonNav} id="signOutBut" onClick={handleLogout}>
                     {translations[lang].header.signOut}
-                  </button>
+                  </div>
                 </>
               ) : (
                 <>
-                  <button className={`${classes.buttonNav} ${classes.loginButton}`}>
+                  <div className={`${classes.buttonNav} ${classes.loginButton}`}>
                     <NavLink to="/login" style={{ textDecoration: "none" }}>
                       {translations[lang].header.signIn}
                     </NavLink>
-                  </button>
-                  <button className={classes.buttonNav}>
+                  </div>
+                  <div className={classes.buttonNav}>
                     <NavLink to="/register" style={{ textDecoration: "none"}}>
                       {translations[lang].header.signUp}
                     </NavLink>
-                  </button>
+                  </div>
                 </>
               )}
             </div>
