@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import MainPage from "../pages/MainPage/MainPage.jsx";
+import Experts from "../pages/Experts/Experts.jsx";
 import Regist from "../pages/Regist/Regist.jsx";
 import Login from "../pages/Login/Login.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
@@ -22,6 +23,7 @@ const Router = () => {
             <Routes>
                 <Route path="/mainPage" element={<MainPage />} /> 
                 <Route path="/homePage" element={<HomePage />} /> 
+                <Route path="/experts" element={<Experts />} />  
                 <Route path="/register" element={<Regist />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/reset" element={<ResetPassword />} />

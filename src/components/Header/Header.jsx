@@ -65,6 +65,9 @@ const Header = () => {
                 <NavLink to="/homePage" style={{ textDecoration: "none", margin: "20px" }}>
                   HomePage
                 </NavLink>
+                <NavLink to="/experts" style={{ textDecoration: "none", margin: "20px" }}>
+                  Experts
+                </NavLink>
               </div>
               <div>
                 <NavLink to="/superAdmin" style={{ textDecoration: "none", margin: "20px" }}>
