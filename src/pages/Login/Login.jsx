@@ -4,6 +4,13 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
+const apiService = axios.create({
+    baseURL: 'http://localhost:8081', // Базовый URL для всех запросов
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
+
 const Login = () => {
 
     const {
@@ -25,7 +32,7 @@ const Login = () => {
         }
         console.log(dataUser)
         try {
-            const res = await apiService.post('/auth/login', dataUser)
+            const res = await apiService.post('http://localhost:8081/auth/login', dataUser)
             console.log(res);
 
             localStorage.setItem('token', res.data.access_token)

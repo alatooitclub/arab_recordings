@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiService = axios.create({
-    baseURL: 'https://arabrecordingsback-production.up.railway.app//',
+    baseURL: 'https://localhost:8081/',
     // baseURL: 'http://localhost:8111/',
 })
 

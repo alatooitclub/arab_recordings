@@ -4,7 +4,15 @@ import { NavLink, useNavigate } from "react-router-dom";
 import classes from "./Regist.module.css";
 import { useLang } from "../../hooks/useLang";
 import { setLang } from "../../contexts/lang";
+import axios from 'axios';
 
+
+const apiService = axios.create({
+    baseURL: 'http://localhost:8081', // Базовый URL для всех запросов
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
 
 const Regist = () => {
 
@@ -22,25 +30,27 @@ const Regist = () => {
         localStorage.setItem("lang", JSON.stringify(lang));
     };
 
-    const navigate = useNavigate()
+   
 
-    const onSubmit = async(data) => {
-        const dataUser = {
-            nickname: data.nickname,
-            email: data.mail,
-            age: data.age,
-            gender: data.gender,
-            password: data.password
-        }
-        console.log(dataUser)
-        try {
-            const res = await apiService.post('/api/v1/auth/register/admin', dataUser)
-            console.log(res);
-            navigate('/login')
-
-        } catch (error) {
-            console.log(error);
-        }
+        const navigate = useNavigate();
+    
+        const onSubmit = async (data) => {
+            const dataUser = {
+                nickname: data.nickname,
+                email: data.email,
+                age: data.age,
+                gender: data.gender,
+                password: data.password
+            };
+            console.log(dataUser);
+            try {
+                const res = await apiService.post('http://localhost:8081/auth/register', dataUser);
+                console.log(res);
+                navigate('/login');
+            } catch (error) {
+                console.log(error);
+            }
+        
     }
 
     return (
